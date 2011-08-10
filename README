@@ -1,0 +1,5 @@
+*******************************
+**    Aurora Game Engine     **
+*******************************
+
+Aurora is a game engine currently under heavy development. It is planned for it to have capabilities for graphic rendering (OpenGL and Direct3D), physics support (Bullet) and audio (OpenAL Soft and/or irrKlang). The files you may find here are governed by the LGPL license. The engine is still incomplete; do not expect any support, documentation, we do not even guarantee that it compiles. The repository contents for now are only provided for the availability of the developer and not for widespread use - still, nothing stops you from taking some code and using it in your projects. Once the engine is complete, documentation, support, an official website and much more will be launched. Until then, we can't give you anything.
