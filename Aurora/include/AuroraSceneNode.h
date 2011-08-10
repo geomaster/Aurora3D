@@ -17,4 +17,17 @@
 	Copyright (C) David Davidovic (Geomaster) 2011.
 
 */
+#ifndef __AURORA_SCENE_NODE_H__
+#define __AURORA_SCENE_NODE_H__
+#include "AuroraPrereqs.h"
+#include "AuroraNode.h"
 
+namespace Aurora
+{
+	class SceneNode : public Node
+	{
+
+	};
+}
+
+#endif // __AURORA_SCENE_NODE_H__

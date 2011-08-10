@@ -179,6 +179,9 @@ namespace Aurora
 			mTransform.Scale = NewScale;
 		}
 
+		virtual void translate(const Vector3D& Translation, TransformSpace RelativeTo = ETS_PARENT);
+		virtual void rotate(const Quaternion& Rotation, TransformSpace RelativeTo = ETS_PARENT);
+		virtual void scale(const Vector3D& Scale, TransformSpace RelativeTo = ETS_PARENT);
 	};
 }
 

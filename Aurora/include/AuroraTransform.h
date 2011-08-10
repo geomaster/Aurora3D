@@ -26,11 +26,11 @@
 
 namespace Aurora
 {
-	enum TransformRelativeTo
+	enum TransformSpace
 	{
-		ETRT_Parent,
-		ETRT_Local,
-		ETRT_World
+		ETS_Parent,
+		ETS_Local,
+		ETS_World
 	};
 
 	struct Transform : virtual public SSEAlloc
