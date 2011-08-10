@@ -32,7 +32,7 @@ namespace Aurora
 		STL::HashMap<String, Entity*>::type mEntities;
 
 	public:
-		SceneNode(String Name, Scene* Sc, Node* Parent = NULL) : Node(Name, Parent), mScene(Sc) { ; }
+		SceneNode(String Name, Scene* Owner, Node* Parent = NULL) : Node(Name, Parent), mScene(Owner) { ; }
 
         virtual Node* createChild(String Name, const Transform& ChildTransform = Transform())
         {
