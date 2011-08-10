@@ -21,12 +21,42 @@
 #define __AURORA_SCENE_NODE_H__
 #include "AuroraPrereqs.h"
 #include "AuroraNode.h"
+#include <STL/HashMap.h>
 
 namespace Aurora
 {
 	class SceneNode : public Node
 	{
+	protected:
+		Scene* mScene;
+		STL::HashMap<String, Entity*>::type mEntities;
 
+	public:
+		SceneNode(String Name, Scene* Sc, Node* Parent = NULL) : Node(Name, Parent), mScene(Sc) { ; }
+
+        virtual Node* createChild(String Name, const Transform& ChildTransform = Transform())
+        {
+        	return createChildSceneNode(Name, ChildTransform);
+        }
+
+        virtual Node* createChild(String Name, const Vector3D& Translation = Vector3D::Zero,
+                         const Quaternion& Rotation = Quaternion::Identity,
+                         const Vector3D& Scale = Vector3D(Real( 1.0 )))
+		{
+			return createChildSceneNode(Name, Translation, Rotation, Scale);
+		}
+
+		virtual SceneNode* createChildSceneNode(String Name, const Transform& ChildTransform = Transform());
+		virtual SceneNode* createChildSceneNode(String Name, const Vector3D& Translation = Vector3D::Zero,
+                         const Quaternion& Rotation = Quaternion::Identity,
+                         const Vector3D& Scale = Vector3D(Real( 1.0 )));
+
+		virtual void attachEntity(Entity* NewEntity);
+		virtual void detachEntity(Entity* OldEntity);
+		virtual void detachEntity(String Name);
+
+		virtual Entity* getEntityByName(String Name);
+		virtual bool hasEntity(Entity* Ent);
 	};
 }
 
