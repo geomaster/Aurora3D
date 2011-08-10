@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Aurora" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/libaurora" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-march=pentium-m" />
+					<Add option="-g" />
+					<Add option="-DAURORA_SOURCE_BUILD=1" />
+					<Add option="-DDEBUG=1" />
+					<Add option="-DNDEBUG=1" />
+					<Add option="-D_DEBUG=1" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add library="pthread" />
+					<Add library="rt" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/libaurora" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-march=pentium4" />
+					<Add option="-O2" />
+					<Add option="-msse" />
+					<Add option="-DAURORA_SOURCE_BUILD=1" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="rt" />
+					<Add library="pthread" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="include/AuroraAllocatedObject.h" />
+		<Unit filename="include/AuroraConfig.h" />
+		<Unit filename="include/AuroraException.h" />
+		<Unit filename="include/AuroraHash.h" />
+		<Unit filename="include/AuroraIterator.h" />
+		<Unit filename="include/AuroraMath.h" />
+		<Unit filename="include/AuroraMatrix3.h" />
+		<Unit filename="include/AuroraMatrix4.h" />
+		<Unit filename="include/AuroraMemoryConfig.h" />
+		<Unit filename="include/AuroraMemoryTracker.h" />
+		<Unit filename="include/AuroraNedAllocator.h" />
+		<Unit filename="include/AuroraNode.h" />
+		<Unit filename="include/AuroraPipeline.h" />
+		<Unit filename="include/AuroraPlatform.h" />
+		<Unit filename="include/AuroraPrereqs.h" />
+		<Unit filename="include/AuroraQuaternion.h" />
+		<Unit filename="include/AuroraSSE.h" />
+		<Unit filename="include/AuroraSTLAllocator.h" />
+		<Unit filename="include/AuroraStandardAllocator.h" />
+		<Unit filename="include/AuroraTransform.h" />
+		<Unit filename="include/AuroraVector2D.h" />
+		<Unit filename="include/AuroraVector3D.h" />
+		<Unit filename="include/AuroraVector4D.h" />
+		<Unit filename="include/STL/Base.h" />
+		<Unit filename="include/STL/HashMap.h" />
+		<Unit filename="include/STL/HashSet.h" />
+		<Unit filename="include/STL/List.h" />
+		<Unit filename="include/STL/Map.h" />
+		<Unit filename="include/STL/Set.h" />
+		<Unit filename="include/STL/Vector.h" />
+		<Unit filename="include/nedmalloc/malloc.c.h" />
+		<Unit filename="include/nedmalloc/nedmalloc.h" />
+		<Unit filename="src/AuroraHash.cpp" />
+		<Unit filename="src/AuroraMath.cpp" />
+		<Unit filename="src/AuroraMatrix3.cpp" />
+		<Unit filename="src/AuroraMatrix4.cpp" />
+		<Unit filename="src/AuroraMemoryTracker.cpp" />
+		<Unit filename="src/AuroraNedAllocator.cpp" />
+		<Unit filename="src/AuroraQuaternion.cpp" />
+		<Unit filename="src/AuroraSSE.cpp" />
+		<Unit filename="src/AuroraSceneNode.cpp" />
+		<Unit filename="src/AuroraStandardAllocator.cpp" />
+		<Unit filename="src/AuroraVector2D.cpp" />
+		<Unit filename="src/AuroraVector3D.cpp" />
+		<Unit filename="src/AuroraVector4D.cpp" />
+		<Unit filename="src/nedmalloc/nedmalloc.cpp" />
+		<Extensions>
+			<code_completion>
+				<search_path add="/home/geomaster/Projects/Aurora/include/" />
+			</code_completion>
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

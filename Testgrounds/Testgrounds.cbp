@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Testgrounds" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Testgrounds" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option external_deps="/home/geomaster/Projects/Aurora/Aurora/bin/Debug/libAurora.so;" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-march=pentium-m" />
+					<Add option="-std=c++0x" />
+					<Add option="-g" />
+					<Add option="-DDEBUG=1" />
+					<Add option="-D_DEBUG=1" />
+					<Add option="-D_NDEBUG=1" />
+					<Add directory="../Aurora/include" />
+				</Compiler>
+				<Linker>
+					<Add library="../Aurora/bin/Debug/libaurora.so" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Testgrounds" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option external_deps="/home/geomaster/Projects/Aurora/Aurora/bin/Release/libAurora.so;" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-march=pentium4" />
+					<Add option="-O2" />
+					<Add directory="../Aurora/include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="../Aurora/bin/Release/libaurora.so" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="AllocTests.cpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

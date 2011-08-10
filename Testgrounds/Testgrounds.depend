@@ -1,0 +1,1873 @@
+# depslib dependency file v1.0
+1312649879 source:/home/geomaster/Projects/Aurora/Testgrounds/AllocMadness.cpp
+	<AuroraMemoryTracker.h>
+	<AuroraAllocatedObject.h>
+	<AuroraMath.h>
+	<iostream>
+	<cstdlib>
+	<cstring>
+
+1312830106 /home/geomaster/Projects/Aurora/Aurora/include/AuroraMemoryTracker.h
+	"AuroraPrereqs.h"
+	"AuroraHash.h"
+	<boost/unordered_map.hpp>
+	<iostream>
+
+1313001551 /home/geomaster/Projects/Aurora/Aurora/include/AuroraPrereqs.h
+	"AuroraPlatform.h"
+	<boost/functional/hash.hpp>
+
+1313001551 /home/geomaster/Projects/Aurora/Aurora/include/AuroraPlatform.h
+	"AuroraConfig.h"
+	<string>
+	<malloc.h>
+	<cassert>
+
+1313001550 /home/geomaster/Projects/Aurora/Aurora/include/AuroraConfig.h
+
+1311601885 /home/geomaster/Projects/Aurora/Aurora/include/boost/unordered_map.hpp
+	<boost/unordered/unordered_map.hpp>
+
+1311601884 /home/geomaster/Projects/Aurora/Aurora/include/boost/unordered/unordered_map.hpp
+	<boost/unordered/unordered_map_fwd.hpp>
+	<boost/functional/hash.hpp>
+	<boost/unordered/detail/allocator_helpers.hpp>
+	<boost/unordered/detail/equivalent.hpp>
+	<boost/unordered/detail/unique.hpp>
+	<boost/unordered/detail/move.hpp>
+	<initializer_list>
+
+1311601884 /home/geomaster/Projects/Aurora/Aurora/include/boost/unordered/unordered_map_fwd.hpp
+	<boost/config.hpp>
+	<memory>
+	<functional>
+	<boost/functional/hash_fwd.hpp>
+
+1311601638 /home/geomaster/Projects/Aurora/Aurora/include/boost/config.hpp
+	<boost/config/select_compiler_config.hpp>
+	<boost/config/select_stdlib_config.hpp>
+	<boost/config/select_platform_config.hpp>
+	<boost/config/suffix.hpp>
+
+1311601637 /home/geomaster/Projects/Aurora/Aurora/include/boost/config/select_compiler_config.hpp
+
+1311601637 /home/geomaster/Projects/Aurora/Aurora/include/boost/config/select_stdlib_config.hpp
+	<cstddef>
+	<boost/config/no_tr1/utility.hpp>
+
+1311601637 /home/geomaster/Projects/Aurora/Aurora/include/boost/config/no_tr1/utility.hpp
+	<utility>
+
+1311601637 /home/geomaster/Projects/Aurora/Aurora/include/boost/config/select_platform_config.hpp
+	<boost/config/posix_features.hpp>
+
+1311601637 /home/geomaster/Projects/Aurora/Aurora/include/boost/config/posix_features.hpp
+	<unistd.h>
+
+1311601638 /home/geomaster/Projects/Aurora/Aurora/include/boost/config/suffix.hpp
+	<limits.h>
+	<cstddef>
+	"boost/type.hpp"
+	"boost/non_type.hpp"
+	<typeinfo>
+
+1311601865 /home/geomaster/Projects/Aurora/Aurora/include/boost/type.hpp
+
+1311601762 /home/geomaster/Projects/Aurora/Aurora/include/boost/non_type.hpp
+
+1311601648 /home/geomaster/Projects/Aurora/Aurora/include/boost/functional/hash_fwd.hpp
+	<boost/functional/hash/hash_fwd.hpp>
+
+1311601648 /home/geomaster/Projects/Aurora/Aurora/include/boost/functional/hash/hash_fwd.hpp
+	<boost/config.hpp>
+	<cstddef>
+	<boost/detail/workaround.hpp>
+
+1311601643 /home/geomaster/Projects/Aurora/Aurora/include/boost/detail/workaround.hpp
+	<boost/config.hpp>
+
+1311601648 /home/geomaster/Projects/Aurora/Aurora/include/boost/functional/hash.hpp
+	<boost/functional/hash/hash.hpp>
+
+1311601648 /home/geomaster/Projects/Aurora/Aurora/include/boost/functional/hash/hash.hpp
+	<boost/functional/hash/hash_fwd.hpp>
+	<functional>
+	<boost/functional/hash/detail/hash_float.hpp>
+	<string>
+	<boost/limits.hpp>
+	<boost/static_assert.hpp>
+	<boost/type_traits/is_pointer.hpp>
+	<typeindex>
+	<boost/functional/hash/extensions.hpp>
+
+1311601648 /home/geomaster/Projects/Aurora/Aurora/include/boost/functional/hash/detail/hash_float.hpp
+	<boost/config.hpp>
+	<boost/functional/hash/detail/float_functions.hpp>
+	<boost/functional/hash/detail/limits.hpp>
+	<boost/integer/static_log2.hpp>
+	<boost/cstdint.hpp>
+	<boost/assert.hpp>
+	<boost/functional/hash/detail/hash_float_x86.hpp>
+	<boost/functional/hash/detail/hash_float_generic.hpp>
+	<boost/functional/hash/detail/hash_float_generic.hpp>
+	<boost/config/no_tr1/cmath.hpp>
+
+1311601648 /home/geomaster/Projects/Aurora/Aurora/include/boost/functional/hash/detail/float_functions.hpp
+	<boost/config.hpp>
+	<boost/config/no_tr1/cmath.hpp>
+
+1311601636 /home/geomaster/Projects/Aurora/Aurora/include/boost/config/no_tr1/cmath.hpp
+	<cmath>
+
+1311601648 /home/geomaster/Projects/Aurora/Aurora/include/boost/functional/hash/detail/limits.hpp
+	<boost/limits.hpp>
+	<float.h>
+
+1311601706 /home/geomaster/Projects/Aurora/Aurora/include/boost/limits.hpp
+	<boost/config.hpp>
+	<boost/detail/limits.hpp>
+	<limits>
+	<climits>
+
+1311601643 /home/geomaster/Projects/Aurora/Aurora/include/boost/detail/limits.hpp
+	<climits>
+	<cfloat>
+	<boost/config.hpp>
+	<boost/detail/endian.hpp>
+	<cwchar>
+
+1311601642 /home/geomaster/Projects/Aurora/Aurora/include/boost/detail/endian.hpp
+	<endian.h>
+
+1311601689 /home/geomaster/Projects/Aurora/Aurora/include/boost/integer/static_log2.hpp
+	"boost/integer_fwd.hpp"
+
+1311601690 /home/geomaster/Projects/Aurora/Aurora/include/boost/integer_fwd.hpp
+	<climits>
+	<cstddef>
+	<boost/config.hpp>
+	<boost/limits.hpp>
+	<boost/cstdint.hpp>
+
+1311601638 /home/geomaster/Projects/Aurora/Aurora/include/boost/cstdint.hpp
+	<boost/config.hpp>
+	<inttypes.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<boost/limits.hpp>
+	<limits.h>
+	<limits.h>
+
+1311601629 /home/geomaster/Projects/Aurora/Aurora/include/boost/assert.hpp
+	<boost/current_function.hpp>
+	<assert.h>
+	<boost/current_function.hpp>
+	<cstdlib>
+	<iostream>
+	<boost/current_function.hpp>
+
+1311601638 /home/geomaster/Projects/Aurora/Aurora/include/boost/current_function.hpp
+
+1311601648 /home/geomaster/Projects/Aurora/Aurora/include/boost/functional/hash/detail/hash_float_x86.hpp
+	<boost/cstdint.hpp>
+
+1311601648 /home/geomaster/Projects/Aurora/Aurora/include/boost/functional/hash/detail/hash_float_generic.hpp
+	<boost/functional/hash/detail/float_functions.hpp>
+	<boost/integer/static_log2.hpp>
+	<boost/functional/hash/detail/limits.hpp>
+
+1311601852 /home/geomaster/Projects/Aurora/Aurora/include/boost/static_assert.hpp
+	<boost/config.hpp>
+	<boost/detail/workaround.hpp>
+
+1311601872 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/is_pointer.hpp
+	<boost/type_traits/is_member_pointer.hpp>
+	<boost/type_traits/detail/ice_and.hpp>
+	<boost/type_traits/detail/ice_not.hpp>
+	<boost/type_traits/config.hpp>
+	<boost/type_traits/remove_cv.hpp>
+	<boost/type_traits/is_reference.hpp>
+	<boost/type_traits/is_array.hpp>
+	<boost/type_traits/detail/is_function_ptr_tester.hpp>
+	<boost/type_traits/detail/false_result.hpp>
+	<boost/type_traits/detail/ice_or.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601872 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/is_member_pointer.hpp
+	<boost/type_traits/config.hpp>
+	<boost/detail/workaround.hpp>
+	<boost/type_traits/is_member_function_pointer.hpp>
+	<boost/type_traits/is_reference.hpp>
+	<boost/type_traits/is_array.hpp>
+	<boost/type_traits/detail/is_mem_fun_pointer_tester.hpp>
+	<boost/type_traits/detail/yes_no_type.hpp>
+	<boost/type_traits/detail/false_result.hpp>
+	<boost/type_traits/detail/ice_or.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601870 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/config.hpp
+	<boost/config.hpp>
+	<boost/detail/workaround.hpp>
+
+1311601872 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/is_member_function_pointer.hpp
+	<boost/type_traits/config.hpp>
+	<boost/detail/workaround.hpp>
+	<boost/type_traits/detail/is_mem_fun_pointer_impl.hpp>
+	<boost/type_traits/remove_cv.hpp>
+	<boost/type_traits/is_reference.hpp>
+	<boost/type_traits/is_array.hpp>
+	<boost/type_traits/detail/yes_no_type.hpp>
+	<boost/type_traits/detail/false_result.hpp>
+	<boost/type_traits/detail/ice_or.hpp>
+	<boost/type_traits/detail/is_mem_fun_pointer_tester.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601870 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/detail/is_mem_fun_pointer_impl.hpp
+	<boost/config.hpp>
+	<boost/preprocessor/iterate.hpp>
+	<boost/preprocessor/enum_params.hpp>
+	<boost/preprocessor/comma_if.hpp>
+
+1311601774 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/iterate.hpp
+	<boost/preprocessor/iteration/iterate.hpp>
+
+1311601775 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/iteration/iterate.hpp
+	<boost/preprocessor/arithmetic/dec.hpp>
+	<boost/preprocessor/arithmetic/inc.hpp>
+	<boost/preprocessor/array/elem.hpp>
+	<boost/preprocessor/array/size.hpp>
+	<boost/preprocessor/cat.hpp>
+	<boost/preprocessor/slot/slot.hpp>
+	<boost/preprocessor/tuple/elem.hpp>
+
+1311601771 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/arithmetic/dec.hpp
+	<boost/preprocessor/config/config.hpp>
+
+1311601772 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/config/config.hpp
+
+1311601772 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/arithmetic/inc.hpp
+	<boost/preprocessor/config/config.hpp>
+
+1311601772 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/array/elem.hpp
+	<boost/preprocessor/array/data.hpp>
+	<boost/preprocessor/array/size.hpp>
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/tuple/elem.hpp>
+
+1311601772 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/array/data.hpp
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/tuple/elem.hpp>
+
+1311601779 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/tuple/elem.hpp
+	<boost/preprocessor/config/config.hpp>
+
+1311601772 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/array/size.hpp
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/tuple/elem.hpp>
+
+1311601772 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/cat.hpp
+	<boost/preprocessor/config/config.hpp>
+
+1311601779 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/slot/slot.hpp
+	<boost/preprocessor/cat.hpp>
+	<boost/preprocessor/slot/detail/def.hpp>
+
+1311601779 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/slot/detail/def.hpp
+
+1311601773 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/enum_params.hpp
+	<boost/preprocessor/repetition/enum_params.hpp>
+
+1311601777 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/repetition/enum_params.hpp
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/punctuation/comma_if.hpp>
+	<boost/preprocessor/repetition/repeat.hpp>
+
+1311601777 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/punctuation/comma_if.hpp
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/control/if.hpp>
+	<boost/preprocessor/facilities/empty.hpp>
+	<boost/preprocessor/punctuation/comma.hpp>
+
+1311601773 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/control/if.hpp
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/control/iif.hpp>
+	<boost/preprocessor/logical/bool.hpp>
+
+1311601773 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/control/iif.hpp
+	<boost/preprocessor/config/config.hpp>
+
+1311601776 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/logical/bool.hpp
+	<boost/preprocessor/config/config.hpp>
+
+1311601774 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/facilities/empty.hpp
+
+1311601777 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/punctuation/comma.hpp
+
+1311601778 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/repetition/repeat.hpp
+	<boost/preprocessor/cat.hpp>
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/debug/error.hpp>
+	<boost/preprocessor/detail/auto_rec.hpp>
+	<boost/preprocessor/tuple/eat.hpp>
+
+1311601773 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/debug/error.hpp
+	<boost/preprocessor/cat.hpp>
+	<boost/preprocessor/config/config.hpp>
+
+1311601773 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/detail/auto_rec.hpp
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/detail/dmc/auto_rec.hpp>
+	<boost/preprocessor/control/iif.hpp>
+
+1311601773 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/detail/dmc/auto_rec.hpp
+	<boost/preprocessor/control/iif.hpp>
+
+1311601779 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/tuple/eat.hpp
+	<boost/preprocessor/config/config.hpp>
+
+1311601772 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/comma_if.hpp
+	<boost/preprocessor/punctuation/comma_if.hpp>
+
+1311601873 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/remove_cv.hpp
+	<boost/type_traits/broken_compiler_spec.hpp>
+	<boost/type_traits/detail/cv_traits_impl.hpp>
+	<boost/config.hpp>
+	<boost/detail/workaround.hpp>
+	<cstddef>
+	<boost/type_traits/msvc/remove_cv.hpp>
+	<boost/type_traits/detail/type_trait_def.hpp>
+	<boost/type_traits/detail/type_trait_undef.hpp>
+
+1311601869 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/broken_compiler_spec.hpp
+	<boost/mpl/aux_/lambda_support.hpp>
+	<boost/config.hpp>
+	<boost/type_traits/detail/type_trait_undef.hpp>
+
+1311601722 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/lambda_support.hpp
+	<boost/mpl/aux_/config/lambda.hpp>
+	<boost/mpl/int_fwd.hpp>
+	<boost/mpl/aux_/yes_no.hpp>
+	<boost/mpl/aux_/na_fwd.hpp>
+	<boost/mpl/aux_/preprocessor/params.hpp>
+	<boost/mpl/aux_/preprocessor/enum.hpp>
+	<boost/mpl/aux_/config/msvc.hpp>
+	<boost/mpl/aux_/config/workaround.hpp>
+	<boost/preprocessor/tuple/to_list.hpp>
+	<boost/preprocessor/list/for_each_i.hpp>
+	<boost/preprocessor/inc.hpp>
+	<boost/preprocessor/cat.hpp>
+
+1311601721 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/config/lambda.hpp
+	<boost/mpl/aux_/config/ttp.hpp>
+	<boost/mpl/aux_/config/ctps.hpp>
+
+1311601721 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/config/ttp.hpp
+	<boost/mpl/aux_/config/msvc.hpp>
+	<boost/mpl/aux_/config/gcc.hpp>
+	<boost/mpl/aux_/config/workaround.hpp>
+
+1311601721 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/config/msvc.hpp
+	<boost/config.hpp>
+
+1311601721 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/config/gcc.hpp
+
+1311601721 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/config/workaround.hpp
+	<boost/detail/workaround.hpp>
+
+1311601720 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/config/ctps.hpp
+	<boost/mpl/aux_/config/workaround.hpp>
+	<boost/config.hpp>
+
+1311601747 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/int_fwd.hpp
+	<boost/mpl/aux_/adl_barrier.hpp>
+	<boost/mpl/aux_/nttp_decl.hpp>
+
+1311601720 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/adl_barrier.hpp
+	<boost/mpl/aux_/config/adl.hpp>
+	<boost/mpl/aux_/config/gcc.hpp>
+	<boost/mpl/aux_/config/workaround.hpp>
+
+1311601720 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/config/adl.hpp
+	<boost/mpl/aux_/config/msvc.hpp>
+	<boost/mpl/aux_/config/intel.hpp>
+	<boost/mpl/aux_/config/gcc.hpp>
+	<boost/mpl/aux_/config/workaround.hpp>
+
+1311601721 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/config/intel.hpp
+	<boost/config.hpp>
+
+1311601723 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/nttp_decl.hpp
+	<boost/mpl/aux_/config/nttp.hpp>
+	<boost/preprocessor/cat.hpp>
+
+1311601721 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/config/nttp.hpp
+	<boost/mpl/aux_/config/msvc.hpp>
+	<boost/mpl/aux_/config/workaround.hpp>
+
+1311601744 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/yes_no.hpp
+	<boost/mpl/aux_/nttp_decl.hpp>
+	<boost/mpl/aux_/config/arrays.hpp>
+	<boost/mpl/aux_/config/msvc.hpp>
+	<boost/mpl/aux_/config/workaround.hpp>
+
+1311601720 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/config/arrays.hpp
+	<boost/mpl/aux_/config/msvc.hpp>
+	<boost/mpl/aux_/config/workaround.hpp>
+
+1311601723 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/na_fwd.hpp
+	<boost/mpl/aux_/adl_barrier.hpp>
+
+1311601743 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/preprocessor/params.hpp
+	<boost/mpl/aux_/config/preprocessor.hpp>
+	<boost/preprocessor/cat.hpp>
+	<boost/preprocessor/comma_if.hpp>
+	<boost/preprocessor/repeat.hpp>
+	<boost/preprocessor/inc.hpp>
+	<boost/preprocessor/cat.hpp>
+
+1311601721 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/config/preprocessor.hpp
+	<boost/mpl/aux_/config/workaround.hpp>
+
+1311601777 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/repeat.hpp
+	<boost/preprocessor/repetition/repeat.hpp>
+
+1311601774 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/inc.hpp
+	<boost/preprocessor/arithmetic/inc.hpp>
+
+1311601743 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/preprocessor/enum.hpp
+	<boost/mpl/aux_/config/preprocessor.hpp>
+	<boost/preprocessor/cat.hpp>
+	<boost/preprocessor/comma_if.hpp>
+	<boost/preprocessor/repeat.hpp>
+
+1311601780 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/tuple/to_list.hpp
+	<boost/preprocessor/config/config.hpp>
+
+1311601776 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/list/for_each_i.hpp
+	<boost/preprocessor/arithmetic/inc.hpp>
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/list/adt.hpp>
+	<boost/preprocessor/repetition/for.hpp>
+	<boost/preprocessor/tuple/elem.hpp>
+	<boost/preprocessor/tuple/rem.hpp>
+
+1311601775 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/list/adt.hpp
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/detail/is_binary.hpp>
+	<boost/preprocessor/logical/compl.hpp>
+	<boost/preprocessor/tuple/eat.hpp>
+
+1311601773 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/detail/is_binary.hpp
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/detail/check.hpp>
+
+1311601773 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/detail/check.hpp
+	<boost/preprocessor/cat.hpp>
+	<boost/preprocessor/config/config.hpp>
+
+1311601776 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/logical/compl.hpp
+	<boost/preprocessor/config/config.hpp>
+
+1311601778 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/repetition/for.hpp
+	<boost/preprocessor/cat.hpp>
+	<boost/preprocessor/debug/error.hpp>
+	<boost/preprocessor/detail/auto_rec.hpp>
+	<boost/preprocessor/repetition/detail/edg/for.hpp>
+	<boost/preprocessor/repetition/detail/msvc/for.hpp>
+	<boost/preprocessor/repetition/detail/dmc/for.hpp>
+	<boost/preprocessor/repetition/detail/for.hpp>
+
+1311601777 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/repetition/detail/edg/for.hpp
+	<boost/preprocessor/control/if.hpp>
+	<boost/preprocessor/tuple/eat.hpp>
+
+1311601777 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/repetition/detail/msvc/for.hpp
+	<boost/preprocessor/control/if.hpp>
+	<boost/preprocessor/tuple/eat.hpp>
+
+1311601777 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/repetition/detail/dmc/for.hpp
+	<boost/preprocessor/control/expr_iif.hpp>
+	<boost/preprocessor/control/iif.hpp>
+	<boost/preprocessor/logical/bool.hpp>
+	<boost/preprocessor/tuple/eat.hpp>
+
+1311601773 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/control/expr_iif.hpp
+	<boost/preprocessor/config/config.hpp>
+
+1311601777 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/repetition/detail/for.hpp
+	<boost/preprocessor/control/expr_iif.hpp>
+	<boost/preprocessor/control/iif.hpp>
+	<boost/preprocessor/logical/bool.hpp>
+	<boost/preprocessor/tuple/eat.hpp>
+
+1311601779 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/tuple/rem.hpp
+	<boost/preprocessor/config/config.hpp>
+
+1311601870 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/detail/type_trait_undef.hpp
+
+1311601870 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/detail/cv_traits_impl.hpp
+	<boost/config.hpp>
+	<boost/detail/workaround.hpp>
+	<boost/type_traits/detail/yes_no_type.hpp>
+
+1311601870 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/detail/yes_no_type.hpp
+
+1311601873 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/msvc/remove_cv.hpp
+	<boost/type_traits/msvc/typeof.hpp>
+	<boost/type_traits/is_volatile.hpp>
+	<boost/type_traits/is_const.hpp>
+	<boost/type_traits/is_pointer.hpp>
+	<boost/type_traits/is_array.hpp>
+
+1311601873 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/msvc/typeof.hpp
+	<boost/config.hpp>
+	<boost/detail/workaround.hpp>
+
+1311601872 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/is_volatile.hpp
+	<boost/config.hpp>
+	<boost/detail/workaround.hpp>
+	<boost/type_traits/detail/cv_traits_impl.hpp>
+	<boost/type_traits/remove_bounds.hpp>
+	<boost/type_traits/is_reference.hpp>
+	<boost/type_traits/is_array.hpp>
+	<boost/type_traits/detail/yes_no_type.hpp>
+	<boost/type_traits/detail/false_result.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601873 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/remove_bounds.hpp
+	<boost/config.hpp>
+	<cstddef>
+	<boost/detail/workaround.hpp>
+	<boost/type_traits/msvc/remove_bounds.hpp>
+	<boost/type_traits/detail/type_trait_def.hpp>
+	<boost/type_traits/detail/type_trait_undef.hpp>
+
+1311601873 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/msvc/remove_bounds.hpp
+	<boost/type_traits/msvc/typeof.hpp>
+	<boost/type_traits/is_array.hpp>
+
+1311601871 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/is_array.hpp
+	<boost/type_traits/config.hpp>
+	<boost/type_traits/detail/yes_no_type.hpp>
+	<boost/type_traits/detail/wrap.hpp>
+	<cstddef>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601870 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/detail/wrap.hpp
+
+1311601870 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/detail/bool_trait_def.hpp
+	<boost/type_traits/detail/template_arity_spec.hpp>
+	<boost/type_traits/integral_constant.hpp>
+	<boost/mpl/bool.hpp>
+	<boost/mpl/aux_/lambda_support.hpp>
+	<boost/config.hpp>
+
+1311601870 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/detail/template_arity_spec.hpp
+	<boost/mpl/int.hpp>
+	<boost/mpl/aux_/template_arity_fwd.hpp>
+	<boost/mpl/aux_/preprocessor/params.hpp>
+	<boost/mpl/aux_/config/lambda.hpp>
+	<boost/mpl/aux_/config/overload_resolution.hpp>
+
+1311601747 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/int.hpp
+	<boost/mpl/int_fwd.hpp>
+	<boost/mpl/aux_/integral_wrapper.hpp>
+
+1311601722 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/integral_wrapper.hpp
+	<boost/mpl/integral_c_tag.hpp>
+	<boost/mpl/aux_/static_cast.hpp>
+	<boost/mpl/aux_/nttp_decl.hpp>
+	<boost/mpl/aux_/config/static_constant.hpp>
+	<boost/mpl/aux_/config/workaround.hpp>
+	<boost/preprocessor/cat.hpp>
+
+1311601747 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/integral_c_tag.hpp
+	<boost/mpl/aux_/adl_barrier.hpp>
+	<boost/mpl/aux_/config/static_constant.hpp>
+
+1311601721 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/config/static_constant.hpp
+	<boost/config.hpp>
+
+1311601744 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/static_cast.hpp
+	<boost/mpl/aux_/config/workaround.hpp>
+
+1311601744 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/template_arity_fwd.hpp
+
+1311601721 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/config/overload_resolution.hpp
+	<boost/mpl/aux_/config/workaround.hpp>
+
+1311601871 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/integral_constant.hpp
+	<boost/config.hpp>
+	<boost/mpl/bool.hpp>
+	<boost/mpl/integral_c.hpp>
+
+1311601745 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/bool.hpp
+	<boost/mpl/bool_fwd.hpp>
+	<boost/mpl/integral_c_tag.hpp>
+	<boost/mpl/aux_/config/static_constant.hpp>
+
+1311601745 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/bool_fwd.hpp
+	<boost/mpl/aux_/adl_barrier.hpp>
+
+1311601747 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/integral_c.hpp
+	<boost/mpl/integral_c_fwd.hpp>
+	<boost/mpl/aux_/config/ctps.hpp>
+	<boost/mpl/aux_/config/static_constant.hpp>
+	<boost/mpl/aux_/config/workaround.hpp>
+	<boost/mpl/aux_/integral_wrapper.hpp>
+
+1311601747 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/integral_c_fwd.hpp
+	<boost/mpl/aux_/config/workaround.hpp>
+	<boost/mpl/aux_/adl_barrier.hpp>
+
+1311601870 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/detail/bool_trait_undef.hpp
+
+1311601870 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/detail/type_trait_def.hpp
+	<boost/type_traits/detail/template_arity_spec.hpp>
+	<boost/mpl/aux_/lambda_support.hpp>
+
+1311601872 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/is_reference.hpp
+	<boost/type_traits/config.hpp>
+	<boost/type_traits/is_lvalue_reference.hpp>
+	<boost/type_traits/is_rvalue_reference.hpp>
+	<boost/type_traits/ice.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601872 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/is_lvalue_reference.hpp
+	<boost/type_traits/config.hpp>
+	<boost/type_traits/detail/yes_no_type.hpp>
+	<boost/type_traits/detail/wrap.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601872 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/is_rvalue_reference.hpp
+	<boost/type_traits/config.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601871 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/ice.hpp
+	<boost/type_traits/detail/yes_no_type.hpp>
+	<boost/type_traits/detail/ice_or.hpp>
+	<boost/type_traits/detail/ice_and.hpp>
+	<boost/type_traits/detail/ice_not.hpp>
+	<boost/type_traits/detail/ice_eq.hpp>
+
+1311601870 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/detail/ice_or.hpp
+	<boost/config.hpp>
+
+1311601870 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/detail/ice_and.hpp
+	<boost/config.hpp>
+
+1311601870 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/detail/ice_not.hpp
+	<boost/config.hpp>
+
+1311601870 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/detail/ice_eq.hpp
+	<boost/config.hpp>
+
+1311601870 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/detail/false_result.hpp
+	<boost/config.hpp>
+
+1311601871 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/is_const.hpp
+	<boost/config.hpp>
+	<boost/detail/workaround.hpp>
+	<boost/type_traits/detail/cv_traits_impl.hpp>
+	<boost/type_traits/is_reference.hpp>
+	<boost/type_traits/remove_bounds.hpp>
+	<boost/type_traits/is_reference.hpp>
+	<boost/type_traits/is_array.hpp>
+	<boost/type_traits/detail/yes_no_type.hpp>
+	<boost/type_traits/detail/false_result.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601870 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/detail/is_mem_fun_pointer_tester.hpp
+	<boost/type_traits/detail/yes_no_type.hpp>
+	<boost/type_traits/config.hpp>
+	<boost/preprocessor/iterate.hpp>
+	<boost/preprocessor/enum_params.hpp>
+	<boost/preprocessor/comma_if.hpp>
+
+1311601870 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/detail/is_function_ptr_tester.hpp
+	<boost/type_traits/detail/yes_no_type.hpp>
+	<boost/type_traits/config.hpp>
+	<boost/preprocessor/iterate.hpp>
+	<boost/preprocessor/enum_params.hpp>
+	<boost/preprocessor/comma_if.hpp>
+
+1311601648 /home/geomaster/Projects/Aurora/Aurora/include/boost/functional/hash/extensions.hpp
+	<boost/functional/hash/hash.hpp>
+	<boost/detail/container_fwd.hpp>
+	<boost/type_traits/is_array.hpp>
+	<boost/type_traits/is_const.hpp>
+
+1311601642 /home/geomaster/Projects/Aurora/Aurora/include/boost/detail/container_fwd.hpp
+	<boost/config.hpp>
+	<boost/detail/workaround.hpp>
+	<deque>
+	<list>
+	<vector>
+	<map>
+	<set>
+	<bitset>
+	<string>
+	<complex>
+	<cstddef>
+	<deque>
+	<bitset>
+
+1311601884 /home/geomaster/Projects/Aurora/Aurora/include/boost/unordered/detail/allocator_helpers.hpp
+	<boost/config.hpp>
+	<boost/detail/allocator_utilities.hpp>
+
+1311601642 /home/geomaster/Projects/Aurora/Aurora/include/boost/detail/allocator_utilities.hpp
+	<boost/config.hpp>
+	<boost/detail/workaround.hpp>
+	<boost/mpl/aux_/msvc_never_true.hpp>
+	<boost/mpl/eval_if.hpp>
+	<boost/type_traits/is_same.hpp>
+	<cstddef>
+	<memory>
+	<new>
+
+1311601723 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/msvc_never_true.hpp
+	<boost/mpl/aux_/config/msvc.hpp>
+	<boost/mpl/aux_/config/workaround.hpp>
+
+1311601746 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/eval_if.hpp
+	<boost/mpl/if.hpp>
+	<boost/mpl/aux_/na_spec.hpp>
+	<boost/mpl/aux_/lambda_support.hpp>
+	<boost/mpl/aux_/config/msvc.hpp>
+	<boost/mpl/aux_/config/gcc.hpp>
+	<boost/mpl/aux_/config/workaround.hpp>
+
+1311601746 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/if.hpp
+	<boost/mpl/aux_/value_wknd.hpp>
+	<boost/mpl/aux_/static_cast.hpp>
+	<boost/mpl/aux_/na_spec.hpp>
+	<boost/mpl/aux_/lambda_support.hpp>
+	<boost/mpl/aux_/config/integral.hpp>
+	<boost/mpl/aux_/config/ctps.hpp>
+	<boost/mpl/aux_/config/workaround.hpp>
+
+1311601744 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/value_wknd.hpp
+	<boost/mpl/aux_/static_cast.hpp>
+	<boost/mpl/aux_/config/integral.hpp>
+	<boost/mpl/aux_/config/eti.hpp>
+	<boost/mpl/aux_/config/workaround.hpp>
+	<boost/mpl/int.hpp>
+
+1311601721 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/config/integral.hpp
+	<boost/mpl/aux_/config/msvc.hpp>
+	<boost/mpl/aux_/config/workaround.hpp>
+
+1311601720 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/config/eti.hpp
+	<boost/mpl/aux_/config/msvc.hpp>
+	<boost/mpl/aux_/config/workaround.hpp>
+
+1311601723 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/na_spec.hpp
+	<boost/mpl/lambda_fwd.hpp>
+	<boost/mpl/int.hpp>
+	<boost/mpl/bool.hpp>
+	<boost/mpl/aux_/na.hpp>
+	<boost/mpl/aux_/arity.hpp>
+	<boost/mpl/aux_/template_arity_fwd.hpp>
+	<boost/mpl/aux_/preprocessor/params.hpp>
+	<boost/mpl/aux_/preprocessor/enum.hpp>
+	<boost/mpl/aux_/preprocessor/def_params_tail.hpp>
+	<boost/mpl/aux_/lambda_arity_param.hpp>
+	<boost/mpl/aux_/config/dtp.hpp>
+	<boost/mpl/aux_/config/eti.hpp>
+	<boost/mpl/aux_/nttp_decl.hpp>
+	<boost/mpl/aux_/config/ttp.hpp>
+	<boost/mpl/aux_/config/lambda.hpp>
+	<boost/mpl/aux_/config/overload_resolution.hpp>
+
+1311601747 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/lambda_fwd.hpp
+	<boost/mpl/void_fwd.hpp>
+	<boost/mpl/aux_/na.hpp>
+	<boost/mpl/aux_/config/lambda.hpp>
+	<boost/mpl/int.hpp>
+	<boost/mpl/aux_/lambda_arity_param.hpp>
+	<boost/mpl/aux_/template_arity_fwd.hpp>
+	<boost/mpl/bool.hpp>
+
+1311601757 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/void_fwd.hpp
+	<boost/mpl/aux_/adl_barrier.hpp>
+
+1311601723 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/na.hpp
+	<boost/mpl/bool.hpp>
+	<boost/mpl/aux_/na_fwd.hpp>
+	<boost/mpl/aux_/config/msvc.hpp>
+	<boost/mpl/aux_/config/ctps.hpp>
+
+1311601722 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/lambda_arity_param.hpp
+	<boost/mpl/aux_/config/ttp.hpp>
+
+1311601720 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/arity.hpp
+	<boost/mpl/aux_/config/dtp.hpp>
+	<boost/mpl/aux_/nttp_decl.hpp>
+	<boost/mpl/aux_/config/static_constant.hpp>
+
+1311601720 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/config/dtp.hpp
+	<boost/mpl/aux_/config/workaround.hpp>
+
+1311601743 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/preprocessor/def_params_tail.hpp
+	<boost/mpl/limits/arity.hpp>
+	<boost/mpl/aux_/config/dtp.hpp>
+	<boost/mpl/aux_/config/preprocessor.hpp>
+	<boost/preprocessor/comma_if.hpp>
+	<boost/preprocessor/logical/and.hpp>
+	<boost/preprocessor/identity.hpp>
+	<boost/preprocessor/empty.hpp>
+	<boost/mpl/aux_/preprocessor/filter_params.hpp>
+	<boost/mpl/aux_/preprocessor/sub.hpp>
+	<boost/preprocessor/arithmetic/add.hpp>
+	<boost/preprocessor/arithmetic/sub.hpp>
+	<boost/preprocessor/inc.hpp>
+	<boost/preprocessor/tuple/elem.hpp>
+	<boost/preprocessor/repeat.hpp>
+	<boost/preprocessor/cat.hpp>
+
+1311601747 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/limits/arity.hpp
+
+1311601776 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/logical/and.hpp
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/logical/bool.hpp>
+	<boost/preprocessor/logical/bitand.hpp>
+
+1311601776 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/logical/bitand.hpp
+	<boost/preprocessor/config/config.hpp>
+
+1311601774 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/identity.hpp
+	<boost/preprocessor/facilities/identity.hpp>
+
+1311601774 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/facilities/identity.hpp
+	<boost/preprocessor/facilities/empty.hpp>
+
+1311601773 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/empty.hpp
+	<boost/preprocessor/facilities/empty.hpp>
+
+1311601743 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/preprocessor/filter_params.hpp
+
+1311601743 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/preprocessor/sub.hpp
+	<boost/mpl/aux_/config/preprocessor.hpp>
+	<boost/mpl/aux_/preprocessor/tuple.hpp>
+	<boost/preprocessor/cat.hpp>
+	<boost/preprocessor/arithmetic/sub.hpp>
+
+1311601743 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/preprocessor/tuple.hpp
+
+1311601772 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/arithmetic/sub.hpp
+	<boost/preprocessor/arithmetic/dec.hpp>
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/control/while.hpp>
+	<boost/preprocessor/tuple/elem.hpp>
+
+1311601773 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/control/while.hpp
+	<boost/preprocessor/cat.hpp>
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/debug/error.hpp>
+	<boost/preprocessor/detail/auto_rec.hpp>
+	<boost/preprocessor/list/fold_left.hpp>
+	<boost/preprocessor/list/fold_right.hpp>
+	<boost/preprocessor/logical/bitand.hpp>
+	<boost/preprocessor/control/detail/edg/while.hpp>
+	<boost/preprocessor/control/detail/msvc/while.hpp>
+	<boost/preprocessor/control/detail/dmc/while.hpp>
+	<boost/preprocessor/control/detail/while.hpp>
+
+1311601776 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/list/fold_left.hpp
+	<boost/preprocessor/cat.hpp>
+	<boost/preprocessor/control/while.hpp>
+	<boost/preprocessor/debug/error.hpp>
+	<boost/preprocessor/detail/auto_rec.hpp>
+	<boost/preprocessor/list/detail/edg/fold_left.hpp>
+	<boost/preprocessor/list/detail/dmc/fold_left.hpp>
+	<boost/preprocessor/list/detail/fold_left.hpp>
+
+1311601776 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/list/detail/edg/fold_left.hpp
+	<boost/preprocessor/control/expr_iif.hpp>
+	<boost/preprocessor/control/iif.hpp>
+	<boost/preprocessor/list/adt.hpp>
+	<boost/preprocessor/tuple/eat.hpp>
+
+1311601775 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/list/detail/dmc/fold_left.hpp
+	<boost/preprocessor/control/expr_iif.hpp>
+	<boost/preprocessor/control/iif.hpp>
+	<boost/preprocessor/list/adt.hpp>
+	<boost/preprocessor/tuple/elem.hpp>
+
+1311601776 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/list/detail/fold_left.hpp
+	<boost/preprocessor/control/expr_iif.hpp>
+	<boost/preprocessor/control/iif.hpp>
+	<boost/preprocessor/list/adt.hpp>
+	<boost/preprocessor/tuple/eat.hpp>
+
+1311601776 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/list/fold_right.hpp
+	<boost/preprocessor/cat.hpp>
+	<boost/preprocessor/control/while.hpp>
+	<boost/preprocessor/debug/error.hpp>
+	<boost/preprocessor/detail/auto_rec.hpp>
+	<boost/preprocessor/list/detail/edg/fold_right.hpp>
+	<boost/preprocessor/list/detail/fold_right.hpp>
+
+1311601776 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/list/detail/edg/fold_right.hpp
+	<boost/preprocessor/control/iif.hpp>
+	<boost/preprocessor/list/adt.hpp>
+	<boost/preprocessor/tuple/eat.hpp>
+
+1311601776 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/list/detail/fold_right.hpp
+	<boost/preprocessor/list/fold_left.hpp>
+	<boost/preprocessor/list/reverse.hpp>
+
+1311601776 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/list/reverse.hpp
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/list/fold_left.hpp>
+
+1311601773 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/control/detail/edg/while.hpp
+	<boost/preprocessor/control/if.hpp>
+	<boost/preprocessor/tuple/eat.hpp>
+
+1311601773 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/control/detail/msvc/while.hpp
+	<boost/preprocessor/control/if.hpp>
+	<boost/preprocessor/tuple/eat.hpp>
+
+1311601773 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/control/detail/dmc/while.hpp
+	<boost/preprocessor/control/iif.hpp>
+	<boost/preprocessor/logical/bool.hpp>
+	<boost/preprocessor/tuple/eat.hpp>
+
+1311601773 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/control/detail/while.hpp
+	<boost/preprocessor/control/iif.hpp>
+	<boost/preprocessor/logical/bool.hpp>
+	<boost/preprocessor/tuple/eat.hpp>
+
+1311601771 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/arithmetic/add.hpp
+	<boost/preprocessor/arithmetic/dec.hpp>
+	<boost/preprocessor/arithmetic/inc.hpp>
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/control/while.hpp>
+	<boost/preprocessor/tuple/elem.hpp>
+
+1311601872 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/is_same.hpp
+	<boost/type_traits/config.hpp>
+	<boost/type_traits/detail/yes_no_type.hpp>
+	<boost/type_traits/detail/ice_and.hpp>
+	<boost/type_traits/is_reference.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601884 /home/geomaster/Projects/Aurora/Aurora/include/boost/unordered/detail/equivalent.hpp
+	<boost/unordered/detail/table.hpp>
+	<boost/unordered/detail/extract_key.hpp>
+
+1311601884 /home/geomaster/Projects/Aurora/Aurora/include/boost/unordered/detail/table.hpp
+	<cstddef>
+	<stdexcept>
+	<algorithm>
+	<boost/config/no_tr1/cmath.hpp>
+	<boost/iterator/iterator_categories.hpp>
+	<boost/throw_exception.hpp>
+	<boost/unordered/detail/buckets.hpp>
+
+1311601704 /home/geomaster/Projects/Aurora/Aurora/include/boost/iterator/iterator_categories.hpp
+	<boost/config.hpp>
+	<boost/detail/iterator.hpp>
+	<boost/iterator/detail/config_def.hpp>
+	<boost/detail/workaround.hpp>
+	<boost/mpl/eval_if.hpp>
+	<boost/mpl/identity.hpp>
+	<boost/mpl/placeholders.hpp>
+	<boost/mpl/aux_/lambda_support.hpp>
+	<boost/type_traits/is_convertible.hpp>
+	<boost/static_assert.hpp>
+	<boost/iterator/detail/config_undef.hpp>
+
+1311601643 /home/geomaster/Projects/Aurora/Aurora/include/boost/detail/iterator.hpp
+	<boost/config.hpp>
+	<iterator>
+	<boost/type_traits/remove_const.hpp>
+	<boost/type_traits/detail/yes_no_type.hpp>
+	<boost/type_traits/is_pointer.hpp>
+	<boost/type_traits/is_same.hpp>
+	<boost/type_traits/remove_pointer.hpp>
+	<boost/type_traits/is_base_and_derived.hpp>
+	<boost/mpl/if.hpp>
+	<boost/mpl/has_xxx.hpp>
+	<cstddef>
+	"boost/type_traits/detail/bool_trait_def.hpp"
+
+1311601873 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/remove_const.hpp
+	<boost/type_traits/is_volatile.hpp>
+	<boost/type_traits/broken_compiler_spec.hpp>
+	<boost/type_traits/detail/cv_traits_impl.hpp>
+	<boost/config.hpp>
+	<boost/detail/workaround.hpp>
+	<cstddef>
+	<boost/type_traits/msvc/remove_const.hpp>
+	<boost/type_traits/detail/type_trait_def.hpp>
+	<boost/type_traits/detail/type_trait_undef.hpp>
+
+1311601873 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/msvc/remove_const.hpp
+	<boost/type_traits/msvc/typeof.hpp>
+	<boost/type_traits/is_volatile.hpp>
+	<boost/type_traits/is_const.hpp>
+	<boost/type_traits/is_pointer.hpp>
+	<boost/type_traits/is_array.hpp>
+
+1311601873 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/remove_pointer.hpp
+	<boost/type_traits/broken_compiler_spec.hpp>
+	<boost/config.hpp>
+	<boost/detail/workaround.hpp>
+	<boost/type_traits/msvc/remove_pointer.hpp>
+	<boost/type_traits/detail/type_trait_def.hpp>
+	<boost/type_traits/detail/type_trait_undef.hpp>
+
+1311601873 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/msvc/remove_pointer.hpp
+	<boost/type_traits/msvc/typeof.hpp>
+	<boost/type_traits/is_pointer.hpp>
+
+1311601871 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/is_base_and_derived.hpp
+	<boost/type_traits/intrinsics.hpp>
+	<boost/type_traits/is_class.hpp>
+	<boost/type_traits/is_same.hpp>
+	<boost/type_traits/is_convertible.hpp>
+	<boost/type_traits/detail/ice_and.hpp>
+	<boost/config.hpp>
+	<boost/static_assert.hpp>
+	<boost/type_traits/remove_cv.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601871 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/intrinsics.hpp
+	<boost/type_traits/config.hpp>
+	<boost/type_traits/is_same.hpp>
+	<algorithm>
+	<type_traits.h>
+	<msl_utility>
+	<boost/type_traits/is_same.hpp>
+	<boost/type_traits/is_same.hpp>
+	<boost/type_traits/is_reference.hpp>
+	<boost/type_traits/is_volatile.hpp>
+	<boost/type_traits/is_same.hpp>
+	<boost/type_traits/is_reference.hpp>
+	<boost/type_traits/is_volatile.hpp>
+	<boost/type_traits/is_same.hpp>
+	<boost/type_traits/is_reference.hpp>
+	<boost/type_traits/is_volatile.hpp>
+	<boost/type_traits/is_void.hpp>
+
+1311601872 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/is_void.hpp
+	<boost/config.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601871 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/is_class.hpp
+	<boost/type_traits/config.hpp>
+	<boost/type_traits/intrinsics.hpp>
+	<boost/type_traits/is_union.hpp>
+	<boost/type_traits/detail/ice_and.hpp>
+	<boost/type_traits/detail/ice_not.hpp>
+	<boost/type_traits/detail/yes_no_type.hpp>
+	<boost/type_traits/is_scalar.hpp>
+	<boost/type_traits/is_array.hpp>
+	<boost/type_traits/is_reference.hpp>
+	<boost/type_traits/is_void.hpp>
+	<boost/type_traits/is_function.hpp>
+	<boost/type_traits/remove_cv.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601872 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/is_union.hpp
+	<boost/type_traits/remove_cv.hpp>
+	<boost/type_traits/config.hpp>
+	<boost/type_traits/intrinsics.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601872 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/is_scalar.hpp
+	<boost/type_traits/is_arithmetic.hpp>
+	<boost/type_traits/is_enum.hpp>
+	<boost/type_traits/is_pointer.hpp>
+	<boost/type_traits/is_member_pointer.hpp>
+	<boost/type_traits/detail/ice_or.hpp>
+	<boost/config.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601871 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/is_arithmetic.hpp
+	<boost/type_traits/is_integral.hpp>
+	<boost/type_traits/is_float.hpp>
+	<boost/type_traits/detail/ice_or.hpp>
+	<boost/config.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601872 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/is_integral.hpp
+	<boost/config.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601872 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/is_float.hpp
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601872 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/is_enum.hpp
+	<boost/type_traits/intrinsics.hpp>
+	<boost/type_traits/add_reference.hpp>
+	<boost/type_traits/is_arithmetic.hpp>
+	<boost/type_traits/is_reference.hpp>
+	<boost/type_traits/is_convertible.hpp>
+	<boost/type_traits/is_array.hpp>
+	<boost/type_traits/is_function.hpp>
+	<boost/type_traits/config.hpp>
+	<boost/type_traits/is_class.hpp>
+	<boost/type_traits/is_union.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601869 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/add_reference.hpp
+	<boost/type_traits/is_reference.hpp>
+	<boost/detail/workaround.hpp>
+	<boost/config.hpp>
+	<boost/type_traits/detail/type_trait_def.hpp>
+	<boost/type_traits/detail/type_trait_undef.hpp>
+
+1311601871 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/is_convertible.hpp
+	<boost/type_traits/intrinsics.hpp>
+	<boost/type_traits/detail/yes_no_type.hpp>
+	<boost/type_traits/config.hpp>
+	<boost/type_traits/is_array.hpp>
+	<boost/type_traits/add_reference.hpp>
+	<boost/type_traits/ice.hpp>
+	<boost/type_traits/is_arithmetic.hpp>
+	<boost/type_traits/is_void.hpp>
+	<boost/type_traits/is_abstract.hpp>
+	<boost/type_traits/is_function.hpp>
+	<boost/type_traits/remove_reference.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601871 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/is_abstract.hpp
+	<boost/type_traits/intrinsics.hpp>
+	<boost/static_assert.hpp>
+	<boost/type_traits/detail/yes_no_type.hpp>
+	<boost/type_traits/is_class.hpp>
+	<boost/type_traits/detail/ice_and.hpp>
+	<boost/type_traits/is_polymorphic.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601872 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/is_polymorphic.hpp
+	<boost/type_traits/intrinsics.hpp>
+	<boost/type_traits/is_class.hpp>
+	<boost/type_traits/remove_cv.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/detail/workaround.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601872 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/is_function.hpp
+	<boost/type_traits/is_reference.hpp>
+	<boost/type_traits/detail/false_result.hpp>
+	<boost/config.hpp>
+	<boost/type_traits/detail/is_function_ptr_helper.hpp>
+	<boost/type_traits/detail/is_function_ptr_tester.hpp>
+	<boost/type_traits/detail/yes_no_type.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601870 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/detail/is_function_ptr_helper.hpp
+	<boost/type_traits/config.hpp>
+	<boost/preprocessor/iterate.hpp>
+	<boost/preprocessor/enum_params.hpp>
+	<boost/preprocessor/comma_if.hpp>
+
+1311601873 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/remove_reference.hpp
+	<boost/type_traits/broken_compiler_spec.hpp>
+	<boost/config.hpp>
+	<boost/detail/workaround.hpp>
+	<boost/type_traits/msvc/remove_reference.hpp>
+	<boost/type_traits/detail/type_trait_def.hpp>
+	<boost/type_traits/detail/type_trait_undef.hpp>
+
+1311601873 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/msvc/remove_reference.hpp
+	<boost/type_traits/msvc/typeof.hpp>
+	<boost/type_traits/is_reference.hpp>
+
+1311601746 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/has_xxx.hpp
+	<boost/mpl/bool.hpp>
+	<boost/mpl/aux_/na_spec.hpp>
+	<boost/mpl/aux_/type_wrapper.hpp>
+	<boost/mpl/aux_/yes_no.hpp>
+	<boost/mpl/aux_/config/gcc.hpp>
+	<boost/mpl/aux_/config/has_xxx.hpp>
+	<boost/mpl/aux_/config/msvc_typename.hpp>
+	<boost/mpl/aux_/config/msvc.hpp>
+	<boost/mpl/aux_/config/static_constant.hpp>
+	<boost/mpl/aux_/config/workaround.hpp>
+	<boost/preprocessor/array/elem.hpp>
+	<boost/preprocessor/cat.hpp>
+	<boost/preprocessor/control/if.hpp>
+	<boost/preprocessor/repetition/enum_params.hpp>
+	<boost/preprocessor/repetition/enum_trailing_params.hpp>
+	<boost/type_traits/is_class.hpp>
+	<boost/mpl/if.hpp>
+	<boost/mpl/bool.hpp>
+
+1311601744 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/type_wrapper.hpp
+	<boost/mpl/aux_/config/ctps.hpp>
+
+1311601721 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/config/has_xxx.hpp
+	<boost/mpl/aux_/config/overload_resolution.hpp>
+	<boost/mpl/aux_/config/workaround.hpp>
+
+1311601721 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/config/msvc_typename.hpp
+	<boost/mpl/aux_/config/msvc.hpp>
+	<boost/mpl/aux_/config/workaround.hpp>
+
+1311601778 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/repetition/enum_trailing_params.hpp
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/repetition/repeat.hpp>
+
+1311601704 /home/geomaster/Projects/Aurora/Aurora/include/boost/iterator/detail/config_def.hpp
+	<boost/config.hpp>
+	<boost/detail/workaround.hpp>
+	<boost/type_traits/is_convertible.hpp>
+
+1311601746 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/identity.hpp
+	<boost/mpl/aux_/na_spec.hpp>
+	<boost/mpl/aux_/lambda_support.hpp>
+
+1311601752 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/placeholders.hpp
+	<boost/mpl/arg.hpp>
+	<boost/mpl/aux_/adl_barrier.hpp>
+	<boost/mpl/aux_/config/use_preprocessed.hpp>
+	<boost/mpl/aux_/include_preprocessed.hpp>
+	<boost/mpl/aux_/nttp_decl.hpp>
+	<boost/mpl/limits/arity.hpp>
+	<boost/preprocessor/iterate.hpp>
+	<boost/preprocessor/cat.hpp>
+
+1311601719 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/arg.hpp
+	<boost/mpl/arg_fwd.hpp>
+	<boost/mpl/aux_/na.hpp>
+	<boost/mpl/aux_/na_assert.hpp>
+	<boost/mpl/aux_/arity_spec.hpp>
+	<boost/mpl/aux_/arg_typedef.hpp>
+	<boost/mpl/aux_/config/static_constant.hpp>
+	<boost/mpl/aux_/config/use_preprocessed.hpp>
+	<boost/mpl/aux_/include_preprocessed.hpp>
+	<boost/mpl/limits/arity.hpp>
+	<boost/mpl/aux_/preprocessor/default_params.hpp>
+	<boost/mpl/aux_/preprocessor/params.hpp>
+	<boost/mpl/aux_/config/lambda.hpp>
+	<boost/mpl/aux_/config/dtp.hpp>
+	<boost/mpl/aux_/nttp_decl.hpp>
+	<boost/preprocessor/iterate.hpp>
+	<boost/preprocessor/inc.hpp>
+	<boost/preprocessor/cat.hpp>
+
+1311601719 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/arg_fwd.hpp
+	<boost/mpl/aux_/adl_barrier.hpp>
+	<boost/mpl/aux_/nttp_decl.hpp>
+
+1311601723 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/na_assert.hpp
+	<boost/mpl/aux_/na.hpp>
+	<boost/mpl/aux_/config/msvc.hpp>
+	<boost/mpl/aux_/config/workaround.hpp>
+	<boost/mpl/assert.hpp>
+	<boost/static_assert.hpp>
+
+1311601719 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/assert.hpp
+	<boost/mpl/not.hpp>
+	<boost/mpl/aux_/value_wknd.hpp>
+	<boost/mpl/aux_/nested_type_wknd.hpp>
+	<boost/mpl/aux_/yes_no.hpp>
+	<boost/mpl/aux_/na.hpp>
+	<boost/mpl/aux_/adl_barrier.hpp>
+	<boost/mpl/aux_/config/nttp.hpp>
+	<boost/mpl/aux_/config/dtp.hpp>
+	<boost/mpl/aux_/config/gcc.hpp>
+	<boost/mpl/aux_/config/msvc.hpp>
+	<boost/mpl/aux_/config/static_constant.hpp>
+	<boost/mpl/aux_/config/pp_counter.hpp>
+	<boost/mpl/aux_/config/workaround.hpp>
+	<boost/preprocessor/cat.hpp>
+	<boost/config.hpp>
+	<cstddef>
+
+1311601751 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/not.hpp
+	<boost/mpl/bool.hpp>
+	<boost/mpl/aux_/nttp_decl.hpp>
+	<boost/mpl/aux_/nested_type_wknd.hpp>
+	<boost/mpl/aux_/na_spec.hpp>
+	<boost/mpl/aux_/lambda_support.hpp>
+
+1311601723 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/nested_type_wknd.hpp
+	<boost/mpl/aux_/config/gcc.hpp>
+	<boost/mpl/aux_/config/workaround.hpp>
+
+1311601721 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/config/pp_counter.hpp
+	<boost/mpl/aux_/config/msvc.hpp>
+
+1311601720 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/arity_spec.hpp
+	<boost/mpl/int.hpp>
+	<boost/mpl/limits/arity.hpp>
+	<boost/mpl/aux_/config/dtp.hpp>
+	<boost/mpl/aux_/preprocessor/params.hpp>
+	<boost/mpl/aux_/arity.hpp>
+	<boost/mpl/aux_/template_arity_fwd.hpp>
+	<boost/mpl/aux_/config/ttp.hpp>
+	<boost/mpl/aux_/config/lambda.hpp>
+	<boost/mpl/aux_/config/static_constant.hpp>
+
+1311601720 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/arg_typedef.hpp
+	<boost/mpl/aux_/config/lambda.hpp>
+	<boost/mpl/aux_/config/workaround.hpp>
+
+1311601721 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/config/use_preprocessed.hpp
+
+1311601722 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/include_preprocessed.hpp
+	<boost/mpl/aux_/config/compiler.hpp>
+	<boost/mpl/aux_/config/preprocessor.hpp>
+	<boost/mpl/aux_/config/workaround.hpp>
+	<boost/preprocessor/cat.hpp>
+	<boost/preprocessor/stringize.hpp>
+
+1311601720 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/config/compiler.hpp
+	<boost/mpl/aux_/config/dtp.hpp>
+	<boost/mpl/aux_/config/ttp.hpp>
+	<boost/mpl/aux_/config/ctps.hpp>
+	<boost/mpl/aux_/config/msvc.hpp>
+	<boost/mpl/aux_/config/gcc.hpp>
+	<boost/mpl/aux_/config/workaround.hpp>
+
+1311601779 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/stringize.hpp
+	<boost/preprocessor/config/config.hpp>
+
+1311601743 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/preprocessor/default_params.hpp
+	<boost/mpl/aux_/config/preprocessor.hpp>
+	<boost/preprocessor/cat.hpp>
+	<boost/preprocessor/tuple/elem.hpp>
+	<boost/preprocessor/comma_if.hpp>
+	<boost/preprocessor/repeat.hpp>
+	<boost/preprocessor/inc.hpp>
+	<boost/preprocessor/cat.hpp>
+
+1311601704 /home/geomaster/Projects/Aurora/Aurora/include/boost/iterator/detail/config_undef.hpp
+
+1311601861 /home/geomaster/Projects/Aurora/Aurora/include/boost/throw_exception.hpp
+	<boost/exception/detail/attribute_noreturn.hpp>
+	<boost/detail/workaround.hpp>
+	<boost/config.hpp>
+	<exception>
+	<boost/exception/exception.hpp>
+	<boost/current_function.hpp>
+
+1311601644 /home/geomaster/Projects/Aurora/Aurora/include/boost/exception/detail/attribute_noreturn.hpp
+
+1311601644 /home/geomaster/Projects/Aurora/Aurora/include/boost/exception/exception.hpp
+
+1311601884 /home/geomaster/Projects/Aurora/Aurora/include/boost/unordered/detail/buckets.hpp
+	<boost/config.hpp>
+	<boost/assert.hpp>
+	<boost/unordered/detail/node.hpp>
+	<boost/unordered/detail/util.hpp>
+
+1311601884 /home/geomaster/Projects/Aurora/Aurora/include/boost/unordered/detail/node.hpp
+	<boost/config.hpp>
+	<boost/assert.hpp>
+	<boost/detail/workaround.hpp>
+	<boost/unordered/detail/fwd.hpp>
+
+1311601884 /home/geomaster/Projects/Aurora/Aurora/include/boost/unordered/detail/fwd.hpp
+	<boost/config.hpp>
+	<boost/iterator.hpp>
+	<boost/compressed_pair.hpp>
+	<boost/type_traits/aligned_storage.hpp>
+	<boost/type_traits/alignment_of.hpp>
+	<boost/unordered/detail/allocator_helpers.hpp>
+	<algorithm>
+	<boost/preprocessor/repetition/enum_params.hpp>
+	<boost/preprocessor/repetition/enum_binary_params.hpp>
+	<boost/preprocessor/repetition/repeat_from_to.hpp>
+
+1311601705 /home/geomaster/Projects/Aurora/Aurora/include/boost/iterator.hpp
+	<iterator>
+	<cstddef>
+	<boost/config.hpp>
+
+1311601635 /home/geomaster/Projects/Aurora/Aurora/include/boost/compressed_pair.hpp
+	<boost/config.hpp>
+	<boost/detail/ob_compressed_pair.hpp>
+	<boost/detail/compressed_pair.hpp>
+
+1311601643 /home/geomaster/Projects/Aurora/Aurora/include/boost/detail/ob_compressed_pair.hpp
+	<algorithm>
+	<boost/type_traits/object_traits.hpp>
+	<boost/type_traits/same_traits.hpp>
+	<boost/call_traits.hpp>
+
+1311601873 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/object_traits.hpp
+	<boost/type_traits/has_trivial_assign.hpp>
+	<boost/type_traits/has_trivial_constructor.hpp>
+	<boost/type_traits/has_trivial_copy.hpp>
+	<boost/type_traits/has_trivial_destructor.hpp>
+	<boost/type_traits/has_nothrow_constructor.hpp>
+	<boost/type_traits/has_nothrow_copy.hpp>
+	<boost/type_traits/has_nothrow_assign.hpp>
+	<boost/type_traits/is_base_and_derived.hpp>
+	<boost/type_traits/is_class.hpp>
+	<boost/type_traits/is_compound.hpp>
+	<boost/type_traits/is_empty.hpp>
+	<boost/type_traits/is_object.hpp>
+	<boost/type_traits/is_pod.hpp>
+	<boost/type_traits/is_scalar.hpp>
+	<boost/type_traits/is_stateless.hpp>
+
+1311601871 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/has_trivial_assign.hpp
+	<boost/type_traits/config.hpp>
+	<boost/type_traits/intrinsics.hpp>
+	<boost/type_traits/is_pod.hpp>
+	<boost/type_traits/is_const.hpp>
+	<boost/type_traits/is_volatile.hpp>
+	<boost/type_traits/detail/ice_and.hpp>
+	<boost/type_traits/detail/ice_or.hpp>
+	<boost/type_traits/detail/ice_not.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601872 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/is_pod.hpp
+	<boost/type_traits/config.hpp>
+	<boost/type_traits/is_void.hpp>
+	<boost/type_traits/is_scalar.hpp>
+	<boost/type_traits/detail/ice_or.hpp>
+	<boost/type_traits/intrinsics.hpp>
+	<cstddef>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601871 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/has_trivial_constructor.hpp
+	<boost/type_traits/config.hpp>
+	<boost/type_traits/intrinsics.hpp>
+	<boost/type_traits/is_pod.hpp>
+	<boost/type_traits/detail/ice_or.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601871 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/has_trivial_copy.hpp
+	<boost/type_traits/config.hpp>
+	<boost/type_traits/intrinsics.hpp>
+	<boost/type_traits/is_volatile.hpp>
+	<boost/type_traits/is_pod.hpp>
+	<boost/type_traits/detail/ice_and.hpp>
+	<boost/type_traits/detail/ice_or.hpp>
+	<boost/type_traits/detail/ice_not.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601871 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/has_trivial_destructor.hpp
+	<boost/type_traits/config.hpp>
+	<boost/type_traits/intrinsics.hpp>
+	<boost/type_traits/is_pod.hpp>
+	<boost/type_traits/detail/ice_or.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601871 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/has_nothrow_constructor.hpp
+	<boost/type_traits/has_trivial_constructor.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601871 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/has_nothrow_copy.hpp
+	<boost/type_traits/has_trivial_copy.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601871 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/has_nothrow_assign.hpp
+	<boost/type_traits/has_trivial_assign.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601871 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/is_compound.hpp
+	<boost/config.hpp>
+	<boost/type_traits/is_fundamental.hpp>
+	<boost/type_traits/detail/ice_not.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601872 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/is_fundamental.hpp
+	<boost/type_traits/is_arithmetic.hpp>
+	<boost/type_traits/is_void.hpp>
+	<boost/type_traits/detail/ice_or.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601872 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/is_empty.hpp
+	<boost/type_traits/is_convertible.hpp>
+	<boost/type_traits/detail/ice_or.hpp>
+	<boost/type_traits/config.hpp>
+	<boost/type_traits/intrinsics.hpp>
+	<boost/type_traits/remove_cv.hpp>
+	<boost/type_traits/is_class.hpp>
+	<boost/type_traits/add_reference.hpp>
+	<boost/type_traits/is_reference.hpp>
+	<boost/type_traits/is_pointer.hpp>
+	<boost/type_traits/is_member_pointer.hpp>
+	<boost/type_traits/is_array.hpp>
+	<boost/type_traits/is_void.hpp>
+	<boost/type_traits/detail/ice_and.hpp>
+	<boost/type_traits/detail/ice_not.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601872 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/is_object.hpp
+	<boost/type_traits/is_reference.hpp>
+	<boost/type_traits/is_void.hpp>
+	<boost/type_traits/is_function.hpp>
+	<boost/type_traits/detail/ice_and.hpp>
+	<boost/type_traits/detail/ice_not.hpp>
+	<boost/config.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601872 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/is_stateless.hpp
+	<boost/type_traits/has_trivial_constructor.hpp>
+	<boost/type_traits/has_trivial_copy.hpp>
+	<boost/type_traits/has_trivial_destructor.hpp>
+	<boost/type_traits/is_class.hpp>
+	<boost/type_traits/is_empty.hpp>
+	<boost/type_traits/detail/ice_and.hpp>
+	<boost/config.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601873 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/same_traits.hpp
+	<boost/type_traits/is_same.hpp>
+
+1311601634 /home/geomaster/Projects/Aurora/Aurora/include/boost/call_traits.hpp
+	<boost/config.hpp>
+	<boost/detail/ob_call_traits.hpp>
+	<boost/detail/call_traits.hpp>
+
+1311601643 /home/geomaster/Projects/Aurora/Aurora/include/boost/detail/ob_call_traits.hpp
+	<boost/config.hpp>
+	<boost/type_traits/arithmetic_traits.hpp>
+	<boost/type_traits/composite_traits.hpp>
+
+1311601869 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/arithmetic_traits.hpp
+	<boost/type_traits/is_arithmetic.hpp>
+	<boost/type_traits/is_float.hpp>
+	<boost/type_traits/is_fundamental.hpp>
+	<boost/type_traits/is_integral.hpp>
+	<boost/type_traits/is_void.hpp>
+
+1311601870 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/composite_traits.hpp
+	<boost/type_traits/is_array.hpp>
+	<boost/type_traits/is_enum.hpp>
+	<boost/type_traits/is_member_pointer.hpp>
+	<boost/type_traits/is_member_function_pointer.hpp>
+	<boost/type_traits/is_pointer.hpp>
+	<boost/type_traits/is_reference.hpp>
+	<boost/type_traits/is_union.hpp>
+
+1311601642 /home/geomaster/Projects/Aurora/Aurora/include/boost/detail/call_traits.hpp
+	<boost/config.hpp>
+	<cstddef>
+	<boost/type_traits/is_arithmetic.hpp>
+	<boost/type_traits/is_pointer.hpp>
+	<boost/detail/workaround.hpp>
+
+1311601642 /home/geomaster/Projects/Aurora/Aurora/include/boost/detail/compressed_pair.hpp
+	<algorithm>
+	<boost/type_traits/remove_cv.hpp>
+	<boost/type_traits/is_empty.hpp>
+	<boost/type_traits/is_same.hpp>
+	<boost/call_traits.hpp>
+
+1311601869 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/aligned_storage.hpp
+	<boost/aligned_storage.hpp>
+
+1311601612 /home/geomaster/Projects/Aurora/Aurora/include/boost/aligned_storage.hpp
+	<cstddef>
+	"boost/config.hpp"
+	"boost/detail/workaround.hpp"
+	"boost/type_traits/alignment_of.hpp"
+	"boost/type_traits/type_with_alignment.hpp"
+	"boost/type_traits/is_pod.hpp"
+	"boost/mpl/eval_if.hpp"
+	"boost/mpl/identity.hpp"
+	"boost/type_traits/detail/bool_trait_def.hpp"
+	"boost/type_traits/detail/bool_trait_undef.hpp"
+
+1311601869 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/alignment_of.hpp
+	<boost/config.hpp>
+	<cstddef>
+	<boost/type_traits/intrinsics.hpp>
+	<boost/type_traits/detail/size_t_trait_def.hpp>
+	<boost/type_traits/detail/size_t_trait_undef.hpp>
+
+1311601870 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/detail/size_t_trait_def.hpp
+	<boost/type_traits/detail/template_arity_spec.hpp>
+	<boost/type_traits/integral_constant.hpp>
+	<boost/mpl/aux_/lambda_support.hpp>
+	<boost/mpl/size_t.hpp>
+	<cstddef>
+
+1311601754 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/size_t.hpp
+	<boost/mpl/size_t_fwd.hpp>
+	<boost/mpl/aux_/integral_wrapper.hpp>
+
+1311601754 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/size_t_fwd.hpp
+	<boost/mpl/aux_/adl_barrier.hpp>
+	<boost/config.hpp>
+	<cstddef>
+
+1311601870 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/detail/size_t_trait_undef.hpp
+
+1311601873 /home/geomaster/Projects/Aurora/Aurora/include/boost/type_traits/type_with_alignment.hpp
+	<boost/mpl/if.hpp>
+	<boost/preprocessor/list/for_each_i.hpp>
+	<boost/preprocessor/tuple/to_list.hpp>
+	<boost/preprocessor/cat.hpp>
+	<boost/preprocessor/list/transform.hpp>
+	<boost/preprocessor/list/append.hpp>
+	<boost/type_traits/alignment_of.hpp>
+	<boost/type_traits/is_pod.hpp>
+	<boost/static_assert.hpp>
+	<boost/config.hpp>
+	<boost/type_traits/detail/bool_trait_def.hpp>
+	<cstddef>
+	<boost/type_traits/detail/bool_trait_undef.hpp>
+
+1311601776 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/list/transform.hpp
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/list/fold_right.hpp>
+	<boost/preprocessor/tuple/elem.hpp>
+	<boost/preprocessor/tuple/rem.hpp>
+
+1311601775 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/list/append.hpp
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/list/fold_right.hpp>
+
+1311601777 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/repetition/enum_binary_params.hpp
+	<boost/preprocessor/cat.hpp>
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/punctuation/comma_if.hpp>
+	<boost/preprocessor/repetition/repeat.hpp>
+	<boost/preprocessor/tuple/elem.hpp>
+	<boost/preprocessor/tuple/rem.hpp>
+
+1311601778 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/repetition/repeat_from_to.hpp
+	<boost/preprocessor/arithmetic/add.hpp>
+	<boost/preprocessor/arithmetic/sub.hpp>
+	<boost/preprocessor/cat.hpp>
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/control/while.hpp>
+	<boost/preprocessor/debug/error.hpp>
+	<boost/preprocessor/detail/auto_rec.hpp>
+	<boost/preprocessor/repetition/repeat.hpp>
+	<boost/preprocessor/tuple/elem.hpp>
+	<boost/preprocessor/tuple/rem.hpp>
+
+1311601884 /home/geomaster/Projects/Aurora/Aurora/include/boost/unordered/detail/util.hpp
+	<cstddef>
+	<utility>
+	<algorithm>
+	<boost/limits.hpp>
+	<boost/iterator/iterator_categories.hpp>
+	<boost/preprocessor/seq/size.hpp>
+	<boost/preprocessor/seq/enum.hpp>
+	<boost/unordered/detail/fwd.hpp>
+
+1311601779 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/seq/size.hpp
+	<boost/preprocessor/cat.hpp>
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/tuple/eat.hpp>
+
+1311601778 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/seq/enum.hpp
+	<boost/preprocessor/cat.hpp>
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/seq/size.hpp>
+
+1311601884 /home/geomaster/Projects/Aurora/Aurora/include/boost/unordered/detail/extract_key.hpp
+	<boost/config.hpp>
+	<boost/type_traits/remove_const.hpp>
+	<boost/unordered/detail/fwd.hpp>
+
+1311601884 /home/geomaster/Projects/Aurora/Aurora/include/boost/unordered/detail/unique.hpp
+	<boost/unordered/detail/table.hpp>
+	<boost/unordered/detail/extract_key.hpp>
+
+1311601884 /home/geomaster/Projects/Aurora/Aurora/include/boost/unordered/detail/move.hpp
+	<boost/config.hpp>
+	<boost/mpl/bool.hpp>
+	<boost/mpl/and.hpp>
+	<boost/mpl/or.hpp>
+	<boost/mpl/not.hpp>
+	<boost/type_traits/is_convertible.hpp>
+	<boost/type_traits/is_same.hpp>
+	<boost/type_traits/is_class.hpp>
+	<boost/utility/enable_if.hpp>
+	<boost/detail/workaround.hpp>
+
+1311601719 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/and.hpp
+	<boost/mpl/aux_/config/use_preprocessed.hpp>
+	<boost/mpl/bool.hpp>
+	<boost/mpl/aux_/nested_type_wknd.hpp>
+	<boost/mpl/aux_/na_spec.hpp>
+	<boost/mpl/aux_/lambda_support.hpp>
+	<boost/mpl/aux_/include_preprocessed.hpp>
+	<boost/mpl/aux_/logical_op.hpp>
+
+1311601722 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/logical_op.hpp
+	<boost/mpl/bool.hpp>
+	<boost/mpl/aux_/nested_type_wknd.hpp>
+	<boost/mpl/aux_/na_spec.hpp>
+	<boost/mpl/aux_/lambda_support.hpp>
+	<boost/mpl/limits/arity.hpp>
+	<boost/mpl/aux_/preprocessor/params.hpp>
+	<boost/mpl/aux_/preprocessor/ext_params.hpp>
+	<boost/mpl/aux_/preprocessor/def_params_tail.hpp>
+	<boost/mpl/aux_/preprocessor/enum.hpp>
+	<boost/mpl/aux_/preprocessor/sub.hpp>
+	<boost/mpl/aux_/config/ctps.hpp>
+	<boost/mpl/aux_/config/workaround.hpp>
+	<boost/preprocessor/dec.hpp>
+	<boost/preprocessor/inc.hpp>
+	<boost/preprocessor/cat.hpp>
+
+1311601743 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/aux_/preprocessor/ext_params.hpp
+	<boost/mpl/aux_/config/preprocessor.hpp>
+	<boost/mpl/aux_/preprocessor/filter_params.hpp>
+	<boost/mpl/aux_/preprocessor/sub.hpp>
+	<boost/preprocessor/arithmetic/add.hpp>
+	<boost/preprocessor/arithmetic/sub.hpp>
+	<boost/preprocessor/comma_if.hpp>
+	<boost/preprocessor/repeat.hpp>
+	<boost/preprocessor/tuple/elem.hpp>
+	<boost/preprocessor/cat.hpp>
+
+1311601773 /home/geomaster/Projects/Aurora/Aurora/include/boost/preprocessor/dec.hpp
+	<boost/preprocessor/arithmetic/dec.hpp>
+
+1311601751 /home/geomaster/Projects/Aurora/Aurora/include/boost/mpl/or.hpp
+	<boost/mpl/aux_/config/use_preprocessed.hpp>
+	<boost/mpl/bool.hpp>
+	<boost/mpl/aux_/nested_type_wknd.hpp>
+	<boost/mpl/aux_/na_spec.hpp>
+	<boost/mpl/aux_/lambda_support.hpp>
+	<boost/mpl/aux_/config/msvc.hpp>
+	<boost/mpl/aux_/include_preprocessed.hpp>
+	<boost/mpl/aux_/logical_op.hpp>
+
+1311601885 /home/geomaster/Projects/Aurora/Aurora/include/boost/utility/enable_if.hpp
+	"boost/config.hpp"
+
+1312830106 /home/geomaster/Projects/Aurora/Aurora/include/AuroraHash.h
+	<string>
+	<cassert>
+	"AuroraPrereqs.h"
+	<boost/unordered_map.hpp>
+
+1313001550 /home/geomaster/Projects/Aurora/Aurora/include/AuroraAllocatedObject.h
+	"AuroraPrereqs.h"
+	"AuroraMemoryConfig.h"
+	<nedmalloc/nedmalloc.h>
+	<new>
+
+1313001550 /home/geomaster/Projects/Aurora/Aurora/include/AuroraMemoryConfig.h
+	"AuroraPrereqs.h"
+	"AuroraNedAllocator.h"
+	"AuroraStandardAllocator.h"
+	"AuroraSTLAllocator.h"
+	<nedmalloc/nedmalloc.h>
+
+1313001551 /home/geomaster/Projects/Aurora/Aurora/include/AuroraNedAllocator.h
+	"AuroraPrereqs.h"
+	<nedmalloc/nedmalloc.h>
+
+1312573790 /home/geomaster/Projects/Aurora/Aurora/include/nedmalloc/nedmalloc.h
+	<stddef.h>
+	<new>
+	<memory>
+	<type_traits>
+
+1313001551 /home/geomaster/Projects/Aurora/Aurora/include/AuroraStandardAllocator.h
+	"AuroraPrereqs.h"
+
+1313001551 /home/geomaster/Projects/Aurora/Aurora/include/AuroraSTLAllocator.h
+	"AuroraPrereqs.h"
+
+1313001550 /home/geomaster/Projects/Aurora/Aurora/include/AuroraMath.h
+	"AuroraPrereqs.h"
+	"AuroraConfig.h"
+	<cmath>
+
+1312830108 source:/home/geomaster/Projects/Aurora/Testgrounds/STLTest.cpp
+	<AuroraPrereqs.h>
+	<AuroraIterator.h>
+	<STL/Vector.h>
+	<STL/List.h>
+	<cstdio>
+	<iostream>
+	<AuroraMemoryTracker.h>
+
+1312830106 /home/geomaster/Projects/Aurora/Aurora/include/AuroraIterator.h
+	"AuroraPrereqs.h"
+
+1312830440 /home/geomaster/Projects/Aurora/Aurora/include/STL/Vector.h
+	"../AuroraPrereqs.h"
+	"../AuroraMemoryConfig.h"
+	"Base.h"
+	<vector>
+
+1312830107 /home/geomaster/Projects/Aurora/Aurora/include/STL/Base.h
+	"../AuroraPrereqs.h"
+	"../AuroraIterator.h"
+
+1312830494 /home/geomaster/Projects/Aurora/Aurora/include/STL/List.h
+	"../AuroraPrereqs.h"
+	"../AuroraMemoryConfig.h"
+	"Base.h"
+	<list>
+
+1313001552 source:/home/geomaster/Projects/Aurora/Testgrounds/AllocTests.cpp
+	<AuroraMatrix4.h>
+	<cstdlib>
+
+1313001550 /home/geomaster/Projects/Aurora/Aurora/include/AuroraMatrix4.h
+	"AuroraPrereqs.h"
+	"AuroraAllocatedObject.h"
+	"AuroraVector3D.h"
+	"AuroraMath.h"
+	"AuroraMatrix3.h"
+	"AuroraSSE.h"
+	<cassert>
+
+1313001551 /home/geomaster/Projects/Aurora/Aurora/include/AuroraVector3D.h
+	"AuroraMath.h"
+	"AuroraPrereqs.h"
+	"AuroraAllocatedObject.h"
+	<cstring>
+
+1313001550 /home/geomaster/Projects/Aurora/Aurora/include/AuroraMatrix3.h
+	"AuroraPrereqs.h"
+	"AuroraAllocatedObject.h"
+	"AuroraVector3D.h"
+	"AuroraMath.h"
+	<cassert>
+
+1313001551 /home/geomaster/Projects/Aurora/Aurora/include/AuroraSSE.h
+	"AuroraPrereqs.h"
+	"AuroraMath.h"
+	<xmmintrin.h>
+
