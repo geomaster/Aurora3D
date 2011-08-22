@@ -27,21 +27,27 @@ namespace Aurora
 	class Entity : virtual public Alloc
 	{
 	protected:
-		Pipeline *mPipeline;
-		SceneManager *mSceneManager;
-
-		Entity(Pipeline* Owner, SceneManager *Smgr) : mPipeline(Owner), mSceneManager(Smgr) { ; }
+		SceneNode *mParent;
 
 	public:
-		virtual void onAttached(SceneNode *NewParent) = 0;
-		virtual void onDetached() = 0;
-		virtual void onParentUpdated() = 0;
-		virtual SceneNode* getParent() = 0;
+		Entity(SceneNode *Parent) : mParent(Parent) { ; }
 
-		virtual Pipeline* getPipeline()
+		virtual void onAttached(SceneNode *NewParent)
 		{
-			return mPipeline;
+			mParent = NewParent;
 		}
+
+		virtual void onDetached()
+		{
+			mParent = NULL;
+		}
+
+		virtual SceneNode* getParent()
+		{
+			return mParent;
+		}
+
+		virtual void update() = 0;
 
 		virtual ~Entity() { ; }
 	};

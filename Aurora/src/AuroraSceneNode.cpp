@@ -89,6 +89,8 @@ void SceneNode::translate(const Vector3D& Translation, TransformSpace RelativeTo
 	}
 
 	mTransform.Translation += transl;
+	_notifyChildrenNeedUpdate();
+	_notifyNeedsUpdate();
 }
 
 void SceneNode::rotate(const Quaternion& Rotation, TransformSpace RelativeTo)
@@ -113,6 +115,8 @@ void SceneNode::rotate(const Quaternion& Rotation, TransformSpace RelativeTo)
 	}
 
 	mTransform.Rotation *= rot;
+	_notifyChildrenNeedUpdate();
+	_notifyNeedsUpdate();
 }
 
 void SceneNode::scale(const Vector3D& Scale, TransformSpace RelativeTo)
@@ -137,24 +141,31 @@ void SceneNode::scale(const Vector3D& Scale, TransformSpace RelativeTo)
 	}
 
 	mTransform.Scale *= scale;
+	_notifyChildrenNeedUpdate();
+	_notifyNeedsUpdate();
 }
 
-Transform SceneNode::_updateAbsoluteTransform(const Transform& ParentTransform, bool UpdateChildren)
+Transform SceneNode::_updateAbsoluteTransform(const Transform& ParentTransform, bool Propagate, bool Force, bool InformChildren)
 {
-	Transform thisTransform = ParentTransform.concatenate(mTransform);
-	mAbsoluteTransform = thisTransform;
-
-	if (UpdateChildren)
+	if (Force || mNeedsUpdate)
 	{
-		for (ChildrenMapIterator it = mChildren.begin(); it != mChildren.end(); ++it)
-			it->second->_updateAbsoluteTransform(thisTransform, true);
+		Transform thisTransform = ParentTransform.concatenate(mTransform);
+		mAbsoluteTransform = thisTransform;
+
+		if (Propagate)
+		{
+			for (ChildrenMapIterator it = mChildren.begin(); it != mChildren.end(); ++it)
+				// We need to force here since we haven't told this child it needs an update
+				it->second->_updateAbsoluteTransform(thisTransform, true, true, InformChildren);
+		}
+
+		mNeedsUpdate = false;
+		if (!Propagate && InformChildren)
+			_notifyChildrenNeedUpdate();
+
+		return thisTransform;
 	}
-
-	mNeedsUpdate = false;
-	if (!UpdateChildren)
-		_notifyChildrenNeedUpdate();
-
-	return thisTransform;
+	else return mAbsoluteTransform;
 }
 
 SceneNode* SceneNode::createChildSceneNode(String Name, const Transform& ChildTransform)
@@ -199,14 +210,11 @@ void SceneNode::removeAndDestroyChildren()
 void SceneNode::attachEntity(Entity* NewEntity)
 {
 	if (NewEntity->getParent())
-		throw DuplicateParentException();
+		throw DuplicateParentException("The Entity provided is already a child of another SceneNode");
 
 	NewEntity->onAttached(this);
 	mEntities.insert(NewEntity);
 
-	SceneManager* sm;
-	if ((sm = mScene->getSceneManager()) && (NewEntity->getPipeline()->getType() == EPT_Immediate))
-		mScene->getSceneManager()->_registerEntity(NewEntity);
 }
 
 void SceneNode::detachEntity(Entity* OldEntity)
@@ -217,10 +225,6 @@ void SceneNode::detachEntity(Entity* OldEntity)
 
 	OldEntity->onDetached();
 	mEntities.erase(it);
-
-	SceneManager* sm;
-	if ((sm = mScene->getSceneManager()) && (OldEntity->getPipeline()->getType() == EPT_Immediate))
-		mScene->getSceneManager()->_unregisterEntity(OldEntity);
 }
 
 SceneNode::~SceneNode()

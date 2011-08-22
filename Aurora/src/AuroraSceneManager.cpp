@@ -18,7 +18,6 @@
 
 */
 #include "AuroraSceneManager.h"
-#include "AuroraPipeline.h"
 #include "AuroraEntity.h"
 #include "AuroraSceneNode.h"
 #include "AuroraException.h"
@@ -30,106 +29,50 @@ SceneManager::SceneManager() : mScene(NULL)
 
 }
 
-void SceneManager::addPipeline(Pipeline *P)
+void SceneManager::updateSceneGraph(SceneNode *Start, const Transform& ParentTransform, bool Force)
 {
-	mPipelines.push_back(P);
-	EntityList l;
-	mEntities.insert(make_pair(P, l));
-}
+	bool DoForce = Force;
 
-void SceneManager::removePipeline(Pipeline* ToRemove)
-{
-	PipelineListIterator it;
-	for (it = mPipelines.begin(); it != mPipelines.end(); ++it)
+	// If this node needs update, we need to force the updates down from this node
+	// because by setting InformChildren to false we are leaving their needsUpdate
+	// flags probably wrong.
+	if (!Force && Start->needsUpdate())
+		DoForce = true;
+
+	Transform t = Start->_updateAbsoluteTransform(ParentTransform, false, Force, false);
+
+	if (Start->getNumberEntities())
 	{
-		if (*it == ToRemove)
-			break;
+		SceneNode::EntityConstIteratorWrapper it = Start->getEntityIterator();
+		while (it.hasMoreElements())
+		{
+			it.get()->update();
+			it.increment();
+		}
 	}
-
-	if (it == mPipelines.end())
-		throw NonExistentException("The pipeline provided is not registered with this SceneManager");
-
-	PipelineEntityListIterator it2 = mEntities.find(ToRemove);
-	AURORA_ASSERT(it2 != mEntities.end(), "INTERNAL ERROR!");
-
-	mPipelines.erase(it);
-	mEntities.erase(it2);
-}
-
-void SceneManager::_registerEntity(Entity* Ent)
-{
-	Pipeline* own = Ent->getPipeline();
-	PipelineEntityListIterator it = mEntities.find(own);
-
-	if (it == mEntities.end())
-		throw NonExistentException("The parent of the entity provided is not registered with this SceneManager");
-
-	AURORA_ASSERT(own->getType() == EPT_Immediate, "Only immediate pipelines should register entities");
-
-	//FIXME: Unsafe base->derived cast
-	it->second.insert(EntitySpec(Ent, static_cast<ImmediatePipeline*>(own)));
-}
-
-void SceneManager::_unregisterEntity(Entity* Ent)
-{
-	PipelineEntityListIterator it = mEntities.find(Ent->getPipeline());
-	if (it == mEntities.end())
-		throw NonExistentException("The parent of the entity provided is not registered with this SceneManager");
-
-	EntityListIterator it2 = it->second.find(Ent);
-	if (it2 == it->second.end())
-		throw NonExistentException("The Entity provided is not registered with this SceneManager");
-
-	it->second.erase(it2);
+	
+	if (Start->getNumberChildren())
+	{
+		SceneNode::ChildrenConstIteratorWrapper it = Start->getChildrenIterator();
+		while (it.hasMoreElements())
+		{
+			SceneNode *node = it.get();
+			node->_updateAbsoluteTransform(t, false, DoForce, false);
+			updateSceneGraph(node);
+			it.increment();
+		}
+	}
 }
 
 void SceneManager::update()
 {
 	// Update the scene graph
-	mScene->getRootSceneNode()->_updateAbsoluteTransform(Transform(), true);
-
-	for (PipelineListIterator it = mPipelines.begin(); it != mPipelines.end(); ++it)
-	{
-		if ((*it)->getType() == EPT_Immediate)
-		{
-			PipelineEntityListIterator li = mEntities.find(*it);
-			EntityList* l = &li->second;
-
-			//FIXME: Unsafe cast
-			ImmediatePipeline* p = static_cast<ImmediatePipeline*>(*it);
-			p->reserveEntitySpace(l->size());
-			for (EntityListIterator it2 = l->begin(); it2 != l->end(); ++it2)
-				p->queueEntity(it2->Ent);
-		}
-		(*it)->update();
-	}
+	updateSceneGraph(mScene->getRootSceneNode());
 }
 
-void SceneManager::registerEntities(SceneNode* From)
-{
-	SceneNode::EntityConstIteratorWrapper it = From->getEntityIterator();
-	while (it.hasMoreElements())
-	{
-		if (it.get()->getPipeline()->getType() == EPT_Immediate)
-			_registerEntity(it.get());
-
-		it.increment();
-	}
-
-	SceneNode::ChildrenConstIteratorWrapper it2 = From->getChildrenIterator();
-	while (it2.hasMoreElements())
-	{
-		registerEntities(it2.get());
-		it2.increment();
-	}
-}
 
 void SceneManager::setScene(Scene* NewScene)
 {
-	for (PipelineEntityListIterator it = mEntities.begin(); it != mEntities.end(); ++it)
-		it->second.clear();
-
 	NewScene->setSceneManager(this);
-	registerEntities(NewScene->getRootSceneNode());
 	mScene = NewScene;
 }

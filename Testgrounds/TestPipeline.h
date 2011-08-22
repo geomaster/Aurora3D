@@ -28,7 +28,16 @@ class TestPipeline : public Aurora::ImmediatePipeline
 protected:
 	struct MyComp : public EntityLess
 	{
-		bool operator()(const Entity* one, const Entity* two)const{return one<two;}
+		bool operator()(const Entity* one, const Entity* two)const
+		{
+			const TestEntity *a = static_cast<const TestEntity*>(one);
+			const TestEntity *b = static_cast<const TestEntity*>(two);
+
+			int comp = a->getName().compare(b->getName());
+			if (comp==0)
+				return a<b;
+			else return comp<0;
+		}
 	} mComp;
 
 	Scene* mScene;
@@ -50,7 +59,7 @@ public:
 
 	}
 
-	EntityLess* getComparer() {return &mComp;}
+	const EntityLess* getComparer() const {return &mComp;}
 };
 
 #endif

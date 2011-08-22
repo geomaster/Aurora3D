@@ -42,21 +42,21 @@
     class name : public inheritfrom \
     { \
 	protected: \
-		Aurora::String mDetails; \
+		Aurora::String mError; \
     public: \
-		name() : mDetails("No details provided.") \
+		name() : mError(inheritfrom::what()) \
 		{ \
 		\
 		} \
 		\
-		name(String Details) : mDetails(Details) \
+		name(String Details) \
 		{ \
-		\
+			mError = String(description) + " (" + String(Details) + ")"; \
 		} \
 		\
         const char* what() const throw() \
         { \
-            return (String(description) + String("\nDetails:\n") + mDetails).c_str(); \
+            return mError.c_str(); \
         } \
         \
         virtual ~name() throw() \
@@ -64,9 +64,10 @@
         \
         } \
     }
-
+/*
 #define AURORA_THROW_EXCEPTION(type, description, where) \
 	throw type (Aurora::String(description) + Aurora::String("\nat ") + Aurora::String(where))
+*/
 
 namespace Aurora
 {

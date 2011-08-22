@@ -21,7 +21,7 @@
 #define __AURORA_SCENE_MANAGER_H__
 #include "AuroraPrereqs.h"
 #include "AuroraScene.h"
-#include "AuroraPipeline.h"
+#include "AuroraTransform.h"
 #include <STL/Vector.h>
 #include <STL/Set.h>
 #include <STL/HashMap.h>
@@ -30,83 +30,18 @@ namespace Aurora
 {
 	class AURORA_LIBRARY SceneManager : virtual public Alloc
 	{
-	public:
-		typedef STL::Vector<Pipeline*>::type PipelineList;
-		typedef PipelineList::iterator PipelineListIterator;
-		typedef PipelineList::const_iterator PipelineListConstIterator;
-
-
 	protected:
 		Scene *mScene;
-		PipelineList mPipelines;
-
-		class EntitySpec
-		{
-		protected:
-			ImmediatePipeline::EntityLess* mComp;
-
-		public:
-			ImmediatePipeline* Owner;
-			Entity* Ent;
-
-			EntitySpec(Entity* E)
-			{
-				Ent = E, Owner = NULL, mComp = NULL;
-			}
-
-			EntitySpec(Entity* E, ImmediatePipeline* O)
-			{
-				Ent = E, Owner = O;
-				mComp = O->getComparer();
-			}
-
-			inline bool operator<(const EntitySpec& other) const
-			{
-				return (mComp? mComp->operator()(Ent, other.Ent) : false);
-			}
-
-			inline bool operator==(const EntitySpec& other) const
-			{
-				return Ent == other.Ent;
-			}
-		};
-
-		typedef STL::Set<EntitySpec>::type EntityList;
-		typedef EntityList::iterator EntityListIterator;
-		typedef EntityList::const_iterator EntityListConstIterator;
-
-		typedef STL::HashMap<Pipeline*, EntityList>::type PipelineEntityList;
-		typedef PipelineEntityList::iterator PipelineEntityListIterator;
-		typedef PipelineEntityList::const_iterator PipelineEntityListConstIterator;
-
-		PipelineEntityList mEntities;
-
-		void registerEntities(SceneNode* From);
+		void updateSceneGraph(SceneNode *Start, const Transform& ParentTransform = Transform(), bool Force = false);
+		
 	public:
 		SceneManager();
 
 		virtual void setScene(Scene *NewScene);
-
 		inline virtual Scene* getScene() const
 		{
 			return mScene;
 		}
-
-		virtual void addPipeline(Pipeline *P);
-		virtual void removePipeline(Pipeline *ToRemove);
-		virtual PipelineList& getPipelineList()
-		{
-			return mPipelines;
-		}
-		virtual const PipelineList& getPipelineList() const
-		{
-			return mPipelines;
-		}
-
-		// Should be called by immediate pipelines to (un)register their Entities, not by
-		// listener ones
-		virtual void _registerEntity(Entity* Ent);
-		virtual void _unregisterEntity(Entity *Ent);
 
 		virtual void update();
 

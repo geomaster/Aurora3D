@@ -17,6 +17,8 @@
 	Copyright (C) David Davidovic (Geomaster) 2011.
 
 */
+#error "Concept of Pipelines is dead"
+
 #ifndef __AURORA_PIPELINE_H__
 #define __AURORA_PIPELINE_H__
 #include "AuroraPrereqs.h"
@@ -55,7 +57,7 @@ namespace Aurora
 		virtual void queueEntity(Entity*) = 0;
 		virtual void reserveEntitySpace(size_t Count) = 0;
 
-		virtual EntityLess* getComparer() = 0;
+		virtual const EntityLess* getComparer() const = 0;
 	};
 
 	class ListenerPipeline : public Pipeline

@@ -89,7 +89,7 @@ namespace Aurora
 
 		virtual Transform getAbsoluteTransform();
 
-		virtual Transform _updateAbsoluteTransform(const Transform& ParentTransform, bool UpdateChildren = true);
+		virtual Transform _updateAbsoluteTransform(const Transform& ParentTransform, bool Propagate = true, bool Force = false, bool InformChildren = true);
         virtual void _notifyNeedsUpdate()
         {
         	mNeedsUpdate = true;
@@ -104,6 +104,10 @@ namespace Aurora
 			}
 		}
 
+		virtual bool needsUpdate() const
+		{
+			return mNeedsUpdate;
+		}
         virtual void _notifyDetached() { ; }
         virtual void _notifyAttached(SceneNode*) { ; }
 
@@ -135,6 +139,7 @@ namespace Aurora
 		virtual void setTransform(const Transform& NewTransform)
 		{
 			mTransform = NewTransform;
+			_notifyChildrenNeedUpdate();
 		}
 
 		virtual Vector3D getTranslation() const
@@ -155,16 +160,22 @@ namespace Aurora
 		virtual void setTranslation(const Vector3D& NewTranslation)
 		{
 			mTransform.Translation = NewTranslation;
+			_notifyChildrenNeedUpdate();
+			_notifyNeedsUpdate();
 		}
 
 		virtual void setRotation(const Quaternion& NewRotation)
 		{
 			mTransform.Rotation = NewRotation;
+			_notifyChildrenNeedUpdate();
+			_notifyNeedsUpdate();
 		}
 
 		virtual void setScale(const Vector3D& NewScale)
 		{
 			mTransform.Scale = NewScale;
+			_notifyChildrenNeedUpdate();
+			_notifyNeedsUpdate();
 		}
 
 		virtual void translate(const Vector3D& Translation, TransformSpace RelativeTo = ETS_Parent);
@@ -178,6 +189,16 @@ namespace Aurora
 
 		virtual void attachEntity(Entity* NewEntity);
 		virtual void detachEntity(Entity* OldEntity);
+
+		virtual size_t getNumberEntities() const
+		{
+			return mEntities.size();
+		}
+
+		virtual size_t getNumberChildren() const
+		{
+			return mChildren.size();
+		}
 
 		virtual EntityConstIteratorWrapper getEntityIterator() const
 		{

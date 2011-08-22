@@ -95,7 +95,6 @@ namespace Aurora
 	class	Matrix3;
 	class	Matrix4;
 	class	MemoryTracker;
-	class	Pipeline;
 	class	SSE;
 	class	Quaternion;
 	class	Scene;
