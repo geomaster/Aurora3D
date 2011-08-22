@@ -83,18 +83,6 @@ void SceneManager::_unregisterEntity(Entity* Ent)
 	it->second.erase(it2);
 }
 
-void SceneManager::onFrameStart()
-{
-	for (PipelineListIterator it = mPipelines.begin(); it != mPipelines.end(); ++it)
-		(*it)->onFrameStart();
-}
-
-void SceneManager::onFrameEnd()
-{
-	for (PipelineListIterator it = mPipelines.begin(); it != mPipelines.end(); ++it)
-		(*it)->onFrameEnd();
-}
-
 void SceneManager::update()
 {
 	// Update the scene graph
@@ -107,6 +95,7 @@ void SceneManager::update()
 			PipelineEntityListIterator li = mEntities.find(*it);
 			EntityList* l = &li->second;
 
+			//FIXME: Unsafe cast
 			ImmediatePipeline* p = static_cast<ImmediatePipeline*>(*it);
 			p->reserveEntitySpace(l->size());
 			for (EntityListIterator it2 = l->begin(); it2 != l->end(); ++it2)

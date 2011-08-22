@@ -19,6 +19,7 @@
 */
 #include "AuroraSceneNode.h"
 #include "AuroraScene.h"
+#include "AuroraSceneManager.h"
 #include "AuroraEntity.h"
 #include "AuroraException.h"
 
@@ -141,7 +142,7 @@ void SceneNode::scale(const Vector3D& Scale, TransformSpace RelativeTo)
 Transform SceneNode::_updateAbsoluteTransform(const Transform& ParentTransform, bool UpdateChildren)
 {
 	Transform thisTransform = ParentTransform.concatenate(mTransform);
-	mTransform = thisTransform;
+	mAbsoluteTransform = thisTransform;
 
 	if (UpdateChildren)
 	{
@@ -202,6 +203,10 @@ void SceneNode::attachEntity(Entity* NewEntity)
 
 	NewEntity->onAttached(this);
 	mEntities.insert(NewEntity);
+
+	SceneManager* sm;
+	if ((sm = mScene->getSceneManager()) && (NewEntity->getPipeline()->getType() == EPT_Immediate))
+		mScene->getSceneManager()->_registerEntity(NewEntity);
 }
 
 void SceneNode::detachEntity(Entity* OldEntity)
@@ -212,6 +217,10 @@ void SceneNode::detachEntity(Entity* OldEntity)
 
 	OldEntity->onDetached();
 	mEntities.erase(it);
+
+	SceneManager* sm;
+	if ((sm = mScene->getSceneManager()) && (OldEntity->getPipeline()->getType() == EPT_Immediate))
+		mScene->getSceneManager()->_unregisterEntity(OldEntity);
 }
 
 SceneNode::~SceneNode()

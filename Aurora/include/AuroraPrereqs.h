@@ -83,6 +83,12 @@ namespace Aurora
 
 #	define AURORA_ASSERT(x, Description)		assert((x) && (Description))
 
+#	if AURORA_COMPILER == AURORA_COMPILER_MSVC
+	// Disable some warnings.
+#	pragma warning(disable: 4251)
+#	define _CRT_SECURE_NO_WARNINGS				1
+#	endif
+
 	class	Entity;
 	class	Exception;
 	class	Math;

@@ -29,7 +29,6 @@ namespace Aurora
 	protected:
 		Pipeline *mPipeline;
 		SceneManager *mSceneManager;
-		SceneNode* mParent;
 
 		Entity(Pipeline* Owner, SceneManager *Smgr) : mPipeline(Owner), mSceneManager(Smgr) { ; }
 
@@ -37,18 +36,13 @@ namespace Aurora
 		virtual void onAttached(SceneNode *NewParent) = 0;
 		virtual void onDetached() = 0;
 		virtual void onParentUpdated() = 0;
-		virtual SceneNode* getParent()
-		{
-			return mParent;
-		}
+		virtual SceneNode* getParent() = 0;
+
 		virtual Pipeline* getPipeline()
 		{
 			return mPipeline;
 		}
-		virtual void setParent(SceneNode* NewParent)
-		{
-			mParent = NewParent;
-		}
+
 		virtual ~Entity() { ; }
 	};
 }

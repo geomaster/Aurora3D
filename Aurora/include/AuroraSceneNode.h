@@ -26,7 +26,7 @@
 
 namespace Aurora
 {
-	class SceneNode : virtual public SSEAlloc
+	class AURORA_LIBRARY SceneNode : virtual public SSEAlloc
 	{
 	public:
 		typedef STL::HashSet<Entity*> EntityListSTL;

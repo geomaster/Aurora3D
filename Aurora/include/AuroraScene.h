@@ -31,7 +31,7 @@ namespace Aurora
 	// On caching level 1, the scene reuses some pointers and doesn't deallocate them
 	// right away in order to avoid expensive allocation/deallocation.
 
-	class Scene : virtual public Alloc
+	class AURORA_LIBRARY Scene : virtual public Alloc
 	{
 	protected:
 		typedef STL::HashSet<SceneNode*>::type NodeSet;

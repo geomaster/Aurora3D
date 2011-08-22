@@ -28,7 +28,7 @@
 
 namespace Aurora
 {
-	class SceneManager : virtual public Alloc
+	class AURORA_LIBRARY SceneManager : virtual public Alloc
 	{
 	public:
 		typedef STL::Vector<Pipeline*>::type PipelineList;
@@ -108,9 +108,7 @@ namespace Aurora
 		virtual void _registerEntity(Entity* Ent);
 		virtual void _unregisterEntity(Entity *Ent);
 
-		virtual void onFrameStart();
 		virtual void update();
-		virtual void onFrameEnd();
 
 		virtual ~SceneManager() { ; }
 	};

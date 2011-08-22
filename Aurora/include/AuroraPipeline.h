@@ -34,11 +34,7 @@ namespace Aurora
 	{
 	public:
 		virtual PipelineType getType() = 0;
-
-		virtual bool onFrameStart() = 0;
 		virtual void update() = 0;
-		virtual bool onFrameEnd() = 0;
-
 		virtual void setScene(Scene*) = 0;
 	};
 
