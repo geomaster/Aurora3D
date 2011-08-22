@@ -33,23 +33,23 @@ namespace Aurora
 			Iterator mIter, mBegin, mEnd;
 
 		public:
-			GenericIteratorWrapper<T, IteratorType, Iterator>(const Iterator& it, const Iterator& begin, const Iterator& end) : mIter(it), mBegin(begin), mEnd(end) { ; }
+			inline GenericIteratorWrapper<T, IteratorType, Iterator>(const Iterator& it, const Iterator& begin, const Iterator& end) : mIter(it), mBegin(begin), mEnd(end) { ; }
 
-			IteratorType* increment()
+			inline IteratorType* increment()
 			{
 				++mIter;
 				return this;
 			}
 
-			void goBegin() { mIter = mBegin; }
-			void goEnd() { mIter = mEnd; }
+			inline void goBegin() { mIter = mBegin; }
+			inline void goEnd() { mIter = mEnd; }
 
-			T& get()
+			inline T& get()
 			{
 				return *mIter;
 			}
 
-			bool hasMoreElements() const
+			inline bool hasMoreElements() const
 			{
 				return mIter != mEnd;
 			}
@@ -62,23 +62,23 @@ namespace Aurora
 			Iterator mIter, mBegin, mEnd;
 
 		public:
-			GenericConstantIteratorWrapper<T, IteratorType, Iterator>(const Iterator& it, const Iterator& begin, const Iterator& end) : mIter(it), mBegin(begin), mEnd(end) { ; }
+			inline GenericConstantIteratorWrapper<T, IteratorType, Iterator>(const Iterator& it, const Iterator& begin, const Iterator& end) : mIter(it), mBegin(begin), mEnd(end) { ; }
 
-			IteratorType* increment()
+			inline IteratorType* increment()
 			{
 				++mIter;
 				return this;
 			}
 
-			void goBegin() { mIter = mBegin; }
-			void goEnd() { mIter = mEnd; }
+			inline void goBegin() { mIter = mBegin; }
+			inline void goEnd() { mIter = mEnd; }
 
-			const T& get() const
+			inline const T& get() const
 			{
 				return *mIter;
 			}
 
-			bool hasMoreElements() const
+			inline bool hasMoreElements() const
 			{
 				return mIter != mEnd;
 			}
@@ -92,23 +92,23 @@ namespace Aurora
 			Iterator mIter, mBegin, mEnd;
 
 		public:
-			GenericPairValueIteratorWrapper<T, IteratorType, Iterator>(const Iterator& it, const Iterator& begin, const Iterator& end) : mIter(it), mBegin(begin), mEnd(end) { ; }
+			inline GenericPairValueIteratorWrapper<T, IteratorType, Iterator>(const Iterator& it, const Iterator& begin, const Iterator& end) : mIter(it), mBegin(begin), mEnd(end) { ; }
 
-			IteratorType* increment()
+			inline IteratorType* increment()
 			{
 				++mIter;
 				return this;
 			}
 
-			void goBegin() { mIter = mBegin; }
-			void goEnd() { mIter = mEnd; }
+			inline void goBegin() { mIter = mBegin; }
+			inline void goEnd() { mIter = mEnd; }
 
-			T& get()
+			inline T& get()
 			{
 				return mIter->second;
 			}
 
-			bool hasMoreElements() const
+			inline bool hasMoreElements() const
 			{
 				return mIter != mEnd;
 			}
@@ -121,23 +121,23 @@ namespace Aurora
 			Iterator mIter, mBegin, mEnd;
 
 		public:
-			GenericPairValueConstantIteratorWrapper<T, IteratorType, Iterator>(const Iterator& it, const Iterator& begin, const Iterator& end) : mIter(it), mBegin(begin), mEnd(end) { ; }
+			inline GenericPairValueConstantIteratorWrapper<T, IteratorType, Iterator>(const Iterator& it, const Iterator& begin, const Iterator& end) : mIter(it), mBegin(begin), mEnd(end) { ; }
 
-			IteratorType* increment()
+			inline IteratorType* increment()
 			{
 				++mIter;
 				return this;
 			}
 
-			void goBegin() { mIter = mBegin; }
-			void goEnd() { mIter = mEnd; }
+			inline void goBegin() { mIter = mBegin; }
+			inline void goEnd() { mIter = mEnd; }
 
-			const T& get() const
+			inline const T& get() const
 			{
 				return mIter->second;
 			}
 
-			bool hasMoreElements() const
+			inline bool hasMoreElements() const
 			{
 				return mIter != mEnd;
 			}

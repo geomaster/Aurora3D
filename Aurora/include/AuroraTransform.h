@@ -49,13 +49,10 @@ namespace Aurora
 
 		Matrix4 toMatrix(bool IsQuaternionUnit = true) const
 		{
-			Matrix4 mat = (IsQuaternionUnit? Rotation.toRotationMatrix4Unit() : Rotation.toRotationMatrix4());
-			mat *= Matrix4::fromScale(Scale.getX(), Scale.getY(), Scale.getZ());
-
-			mat.setEntry(0, 3, Translation.getX());
-			mat.setEntry(1, 3, Translation.getY());
-			mat.setEntry(2, 3, Translation.getZ());
-
+			Matrix4 mat;
+			mat = (IsQuaternionUnit? Rotation.toRotationMatrix4Unit() : Rotation.toRotationMatrix4());
+			mat *= Matrix4::fromTranslation(Translation);
+			mat *= Matrix4::fromScale(Scale);
 			return mat;
 		}
 

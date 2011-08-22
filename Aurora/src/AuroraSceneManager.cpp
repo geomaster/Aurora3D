@@ -129,6 +129,7 @@ void SceneManager::setScene(Scene* NewScene)
 	for (PipelineEntityListIterator it = mEntities.begin(); it != mEntities.end(); ++it)
 		it->second.clear();
 
+	NewScene->setSceneManager(this);
 	registerEntities(NewScene->getRootSceneNode());
 	mScene = NewScene;
 }

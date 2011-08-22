@@ -37,8 +37,10 @@ public:
 	void queueEntity(Entity* Ent)
 	{
 		TestEntity* e = static_cast<TestEntity*>(Ent);
-		Transform t = Ent->getParent()->getAbsoluteTransform();
-		printf("got %s r(%f %f %f)\n",e->getName().c_str(), t.Rotation.getX(), t.Rotation.getY(), t.Rotation.getZ(), t.Rotation.getW());
+		Transform t = e->getParent()->getAbsoluteTransform();
+		Vector3D a = t.toMatrix() * Vector3D(0.f);
+
+		printf("got %s (%f %f %f)\n",e->getName().c_str(), a.getX(), a.getY(), a.getZ());
 	}
 
 	void reserveEntitySpace(size_t){;}

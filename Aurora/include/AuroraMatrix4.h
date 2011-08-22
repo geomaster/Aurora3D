@@ -348,6 +348,7 @@ namespace Aurora
 		static Matrix4 fromXYZRotation(Angle X, Angle Y, Angle Z);
 		static Matrix4 fromAngleAxis(const Vector3D& Axis, Angle Theta);
 		static Matrix4 fromScale(Real X, Real Y, Real Z);
+		static Matrix4 fromScale(const Vector3D& Scale);
 		static Matrix4 fromTranslation(Real X, Real Y, Real Z);
 		static Matrix4 fromTranslation(const Vector3D& Translation);
 	};

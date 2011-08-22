@@ -232,6 +232,12 @@ Matrix4 Matrix4::fromScale(Real X, Real Y, Real Z)
 		0, 0, 0, 1);
 }
 
+
+Matrix4 Matrix4::fromScale(const Vector3D& Scale)
+{
+	return Matrix4::fromScale(Scale.getX(), Scale.getY(), Scale.getZ());
+}
+
 Matrix4 Matrix4::fromAngleAxis(const Vector3D& Axis, Angle Theta)
 {
 	return Matrix4(Matrix3::fromAngleAxis(Axis, Theta));
