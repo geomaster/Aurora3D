@@ -54,8 +54,6 @@
 #define AURORA_SYNTAX_ATNT				1
 #define AURORA_SYNTAX_INTEL				2
 
-#define AURORA_ASSERT(x)				assert((x))
-
 /**** PLATFORM DETECTION ***/
 
 // Detect the compiler

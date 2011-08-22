@@ -26,6 +26,7 @@
 #include "AuroraQuaternion.h"
 #include "AuroraTransform.h"
 #include "AuroraHash.h"
+#include "AuroraException.h"
 #include "STL/HashMap.h"
 //#include "STL/Vector.h"
 
@@ -64,6 +65,7 @@ namespace Aurora
 
         mutable Transform mAbsoluteTransform;
         mutable bool mNeedsUpdate;
+
         bool mIsRoot;
 
 	public:
@@ -93,21 +95,29 @@ namespace Aurora
 		virtual void removeAndDestroyChild(String ChildName) = 0;
         virtual void removeAndDestroyChildren() = 0;
 
-		virtual Node* getChildByName(String Name);
+		virtual Node* getChildByName(String Name) const;
 		virtual void setParent(Node *Parent)
 		{
 			mParent = Parent;
 		}
 
-		virtual Transform getAbsoluteTransform() const;
-		virtual Transform _updateAbsoluteTransform(const Transform& ParentTransform, bool UpdateChildren);
+		virtual Transform getAbsoluteTransform();
+		virtual Transform _updateAbsoluteTransform(const Transform& ParentTransform, bool UpdateChildren = true);
         virtual void _notifyNeedsUpdate()
         {
         	mNeedsUpdate = true;
         }
+		virtual void _notifyChildrenNeedUpdate()
+		{
+			for (ChildrenMapIterator it = mChildren.begin(); it != mChildren.end(); ++it)
+			{
+				it->second->_notifyNeedsUpdate();
+				it->second->_notifyChildrenNeedUpdate();
+			}
+		}
 
         virtual void _notifyDetached() { ; }
-        virtual void _notifyAttached() { ; }
+        virtual void _notifyAttached(Node*) { ; }
 
         virtual void setIsRoot(bool IsRoot)
         {
@@ -179,9 +189,11 @@ namespace Aurora
 			mTransform.Scale = NewScale;
 		}
 
-		virtual void translate(const Vector3D& Translation, TransformSpace RelativeTo = ETS_PARENT);
-		virtual void rotate(const Quaternion& Rotation, TransformSpace RelativeTo = ETS_PARENT);
-		virtual void scale(const Vector3D& Scale, TransformSpace RelativeTo = ETS_PARENT);
+		virtual void translate(const Vector3D& Translation, TransformSpace RelativeTo = ETS_Parent);
+		virtual void rotate(const Quaternion& Rotation, TransformSpace RelativeTo = ETS_Parent);
+		virtual void scale(const Vector3D& Scale, TransformSpace RelativeTo = ETS_Parent);
+
+		virtual ~Node();
 	};
 }
 

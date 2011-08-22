@@ -81,6 +81,12 @@ namespace Aurora
 		{
 			return &X;
 		}
+
+		// What the flying fuck, boost calls operator() to check for equality?!
+		inline bool operator()(const T& first, const T& second) const
+		{
+			return first == second;
+		}
 	};
 
 	template<typename T, typename Allocator, typename oT>
@@ -93,7 +99,6 @@ namespace Aurora
 	template<typename T, typename Allocator, typename OtherType>
 	inline AURORA_LIBRARY bool operator==(STLAllocator<T, Allocator> One, OtherType Two)
 	{
-		// no! not same types.
 		return false;
 	}
 

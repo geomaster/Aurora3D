@@ -128,13 +128,13 @@ namespace Aurora
 
 		inline Real getEntry(std::size_t Column, std::size_t Row)
 		{
-			AURORA_ASSERT(Column < 4 && Row < 4 );
+			AURORA_ASSERT(Column < 4 && Row < 4, "Nonexistent row and/or column required");
 			return mComponents[LEA2D(Column, Row, 4)];
 		}
 
 		inline void setEntry(std::size_t Column, std::size_t Row, Real Value)
 		{
-			AURORA_ASSERT(Column < 4 && Row < 4);
+			AURORA_ASSERT(Column < 4 && Row < 4, "Nonexistent row and/or column required");
 			mComponents[LEA2D(Column, Row, 4)] = Value;
 
 		#	if AURORA_CACHING_LEVEL >= 1

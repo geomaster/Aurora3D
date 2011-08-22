@@ -37,10 +37,8 @@ namespace Aurora
 
 			typedef std::set<K, Comp, typename STLAllocators<value_type>::Default> type;
 
-			typedef typename IteratorWrappers<value_type, typename type::iterator>::Forward iterator;
-			typedef typename IteratorWrappers<value_type, typename type::iterator>::ConstantForward const_iterator;
-			typedef typename IteratorWrappers<value_type, typename type::iterator>::Reverse reverse_iterator;
-			typedef typename IteratorWrappers<value_type, typename type::iterator>::ConstantReverse const_reverse_iterator;
+			typedef typename IteratorWrappers<value_type, typename type::const_iterator>::ConstantForward const_iterator;
+			typedef typename IteratorWrappers<value_type, typename type::const_reverse_iterator>::ConstantReverse const_reverse_iterator;
 
 //			typedef ContainerWrapper<value_type, type> container;
 		};

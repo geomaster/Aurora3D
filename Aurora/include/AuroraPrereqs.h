@@ -56,12 +56,16 @@ namespace Aurora
 #	define LEA2D(x,y,w)			((x)+(y)*(w))
 
 #	if AURORA_USE_DEFAULT_HASH
-	typedef boost::hash Hash;
-	typedef boost::hash ApproximateHash;
+#	define AURORA_APPROX_HASH(T)				boost::hash<T>
+#	define AURORA_HASH(T)						boost::hash<T>
+#	else
+#	define AURORA_APPROX_HASH(T)				Aurora::ApproximateHash<T>
+#	define AURORA_HASH(T)						Aurora::Hash<T>
 #	endif
 
 #	if AURORA_MEMORY_TRACKING
 #		define AURORA_NEW						new(__FILE__, __LINE__)
+#		define AURORA_PLACEMENT_NEW(place)		new(place)
 #		define AURORA_NEW_POD(type)				Aurora::GlobalAllocator<type>::allocate(__FILE__, __LINE__)
 #		define AURORA_NEW_POD_ARRAY(type,sz)	Aurora::GlobalAllocator<type>::allocateArray(sz, __FILE__, __LINE__)
 #		define AURORA_DELETE					delete
@@ -69,6 +73,7 @@ namespace Aurora
 #		define AURORA_DELETE_POD_ARRAY(x, type)	Aurora::GlobalAllocaotr<type>::deallocateArray(x)
 #	else
 #		define AURORA_NEW						new
+#		define AURORA_PLACEMENT_NEW(place)		new(place)
 #		define AURORA_NEW_POD(type)				Aurora::GlobalAllocator<type>::allocate()
 #		define AURORA_NEW_POD_ARRAY(type, sz)	Aurora::::GlobalAllocator<type>::allocateArray(sz)
 #		define AURORA_DELETE					delete
@@ -76,13 +81,14 @@ namespace Aurora
 #		define AURORA_DELETE_POD_ARRAY(x, type)	Aurora::GlobalAllocator<type>::deallocateArray(x)
 #	endif
 
+#	define AURORA_ASSERT(x, Description)		assert((x) && (Description))
+
 	class	Entity;
 	class	Exception;
 	class	Math;
 	class	Matrix3;
 	class	Matrix4;
 	class	MemoryTracker;
-	class	Node;
 	class	Pipeline;
 	class	SSE;
 	class	Quaternion;

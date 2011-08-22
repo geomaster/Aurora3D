@@ -54,6 +54,7 @@
 		</Compiler>
 		<Unit filename="include/AuroraAllocatedObject.h" />
 		<Unit filename="include/AuroraConfig.h" />
+		<Unit filename="include/AuroraEntity.h" />
 		<Unit filename="include/AuroraException.h" />
 		<Unit filename="include/AuroraHash.h" />
 		<Unit filename="include/AuroraIterator.h" />
@@ -63,13 +64,15 @@
 		<Unit filename="include/AuroraMemoryConfig.h" />
 		<Unit filename="include/AuroraMemoryTracker.h" />
 		<Unit filename="include/AuroraNedAllocator.h" />
-		<Unit filename="include/AuroraNode.h" />
 		<Unit filename="include/AuroraPipeline.h" />
 		<Unit filename="include/AuroraPlatform.h" />
 		<Unit filename="include/AuroraPrereqs.h" />
 		<Unit filename="include/AuroraQuaternion.h" />
 		<Unit filename="include/AuroraSSE.h" />
 		<Unit filename="include/AuroraSTLAllocator.h" />
+		<Unit filename="include/AuroraScene.h" />
+		<Unit filename="include/AuroraSceneManager.h" />
+		<Unit filename="include/AuroraSceneNode.h" />
 		<Unit filename="include/AuroraStandardAllocator.h" />
 		<Unit filename="include/AuroraTransform.h" />
 		<Unit filename="include/AuroraVector2D.h" />
@@ -92,6 +95,8 @@
 		<Unit filename="src/AuroraNedAllocator.cpp" />
 		<Unit filename="src/AuroraQuaternion.cpp" />
 		<Unit filename="src/AuroraSSE.cpp" />
+		<Unit filename="src/AuroraScene.cpp" />
+		<Unit filename="src/AuroraSceneManager.cpp" />
 		<Unit filename="src/AuroraSceneNode.cpp" />
 		<Unit filename="src/AuroraStandardAllocator.cpp" />
 		<Unit filename="src/AuroraVector2D.cpp" />

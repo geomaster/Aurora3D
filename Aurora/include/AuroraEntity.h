@@ -17,4 +17,40 @@
 	Copyright (C) David Davidovic (Geomaster) 2011.
 
 */
+#ifndef __AURORA_ENTITY_H__
+#define __AURORA_ENTITY_H__
+#include "AuroraPrereqs.h"
+#include "AuroraAllocatedObject.h"
 
+namespace Aurora
+{
+	class Entity : virtual public Alloc
+	{
+	protected:
+		Pipeline *mPipeline;
+		SceneManager *mSceneManager;
+		SceneNode* mParent;
+
+		Entity(Pipeline* Owner, SceneManager *Smgr) : mPipeline(Owner), mSceneManager(Smgr) { ; }
+
+	public:
+		virtual void onAttached(SceneNode *NewParent) = 0;
+		virtual void onDetached() = 0;
+		virtual void onParentUpdated() = 0;
+		virtual SceneNode* getParent()
+		{
+			return mParent;
+		}
+		virtual Pipeline* getPipeline()
+		{
+			return mPipeline;
+		}
+		virtual void setParent(SceneNode* NewParent)
+		{
+			mParent = NewParent;
+		}
+		virtual ~Entity() { ; }
+	};
+}
+
+#endif // __AURORA_ENTITY_H__

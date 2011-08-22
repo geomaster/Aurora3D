@@ -50,7 +50,8 @@ namespace Aurora
 	public:
 		std::size_t operator() (const T& key) const
 		{
-			return static_cast<std::size_t>(key);
+			// Has to be reinterpret
+			return reinterpret_cast<std::size_t>(key);
 		}
 	};
 
@@ -60,13 +61,10 @@ namespace Aurora
 	public:
 		std::size_t operator() (const T& key) const
 		{
-			return static_cast<std::size_t>(key);
-		}
-
-		std::size_t operator() (const T* const key) const
-		{
+			// Has to be reinterpret
 			return reinterpret_cast<std::size_t>(key);
 		}
+
 	};
 
 	template<>

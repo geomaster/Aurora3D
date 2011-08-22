@@ -70,12 +70,71 @@ namespace Aurora
 				return this;
 			}
 
-			IteratorType* begin() { return &mBegin; }
-			IteratorType* end() { return &mEnd; }
+			void goBegin() { mIter = mBegin; }
+			void goEnd() { mIter = mEnd; }
 
 			const T& get() const
 			{
 				return *mIter;
+			}
+
+			bool hasMoreElements() const
+			{
+				return mIter != mEnd;
+			}
+
+		};
+
+		template<typename T, typename IteratorType, class Iterator>
+		class GenericPairValueIteratorWrapper : public IteratorType
+		{
+		protected:
+			Iterator mIter, mBegin, mEnd;
+
+		public:
+			GenericPairValueIteratorWrapper<T, IteratorType, Iterator>(const Iterator& it, const Iterator& begin, const Iterator& end) : mIter(it), mBegin(begin), mEnd(end) { ; }
+
+			IteratorType* increment()
+			{
+				++mIter;
+				return this;
+			}
+
+			void goBegin() { mIter = mBegin; }
+			void goEnd() { mIter = mEnd; }
+
+			T& get()
+			{
+				return mIter->second;
+			}
+
+			bool hasMoreElements() const
+			{
+				return mIter != mEnd;
+			}
+		};
+
+		template<typename T, typename IteratorType, class Iterator>
+		class GenericPairValueConstantIteratorWrapper : public IteratorType
+		{
+		protected:
+			Iterator mIter, mBegin, mEnd;
+
+		public:
+			GenericPairValueConstantIteratorWrapper<T, IteratorType, Iterator>(const Iterator& it, const Iterator& begin, const Iterator& end) : mIter(it), mBegin(begin), mEnd(end) { ; }
+
+			IteratorType* increment()
+			{
+				++mIter;
+				return this;
+			}
+
+			void goBegin() { mIter = mBegin; }
+			void goEnd() { mIter = mEnd; }
+
+			const T& get() const
+			{
+				return mIter->second;
 			}
 
 			bool hasMoreElements() const
@@ -93,6 +152,13 @@ namespace Aurora
 
 			typedef GenericIteratorWrapper<T, ContainerReverseIterator<T>, Iterator> Reverse;
 			typedef GenericConstantIteratorWrapper<T, ContainerConstantReverseIterator<T>, Iterator> ConstantReverse;
+
+			typedef GenericPairValueIteratorWrapper<T, ContainerForwardIterator<T>, Iterator> ValueForward;
+			typedef GenericPairValueConstantIteratorWrapper<T, ContainerConstantForwardIterator<T>, Iterator> ValueConstantForward;
+
+			typedef GenericPairValueIteratorWrapper<T, ContainerReverseIterator<T>, Iterator> ValueReverse;
+			typedef GenericPairValueConstantIteratorWrapper<T, ContainerConstantReverseIterator<T>, Iterator> ValueConstantReverse;
+
 		};
 
 /*

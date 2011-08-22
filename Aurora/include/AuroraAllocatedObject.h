@@ -67,6 +67,12 @@ namespace Aurora
 			return AllocatorType::type::allocateMemory(Size, static_cast<size_t>(Line), File);
 		}
 
+		void* operator new[](size_t Size, void* Where)
+		{
+			// delegate to global operator new[]
+			return ::operator new(Size, Where);
+		}
+
 		void* operator new[](size_t Size, const std::nothrow_t&)
 		{
 			return AllocatorType::type::allocateMemory(Size, static_cast<size_t>(__LINE__), __FILE__);
@@ -135,9 +141,10 @@ namespace Aurora
 			return ThisAlloc::allocateMemory(Size);
 		}
 
-		void* operator new[](size_t Size, const char* File, int Line)
+		void* operator new[](size_t Size, void* Where)
 		{
-			return ThisAlloc::allocateMemory(Size, static_cast<size_t>(Line), File);
+			// delegate to global operator new[]
+			return ::operator new(Size, Where);
 		}
 
 		void* operator new[](size_t Size, const std::nothrow_t&)
@@ -196,6 +203,12 @@ namespace Aurora
 			return ThisAlloc::allocateMemory(Size);
 		}
 
+		void* operator new(size_t Size, const char* File, int Line, void* Where)
+		{
+			// delegate to global operator new
+			return ::operator new(Size, Where);
+		}
+
 		void* operator new(size_t Size, void* Where)
 		{
 			// delegate to global operator new
@@ -207,9 +220,10 @@ namespace Aurora
 			return ThisAlloc::allocateMemory(Size);
 		}
 
-		void* operator new[](size_t Size, const char* File, int Line)
+		void* operator new[](size_t Size, void* Where)
 		{
-			return ThisAlloc::allocateMemory(Size, static_cast<size_t>(Line), File);
+			// delegate to global operator new[]
+			return ::operator new(Size, Where);
 		}
 
 		void* operator new[](size_t Size, const std::nothrow_t&)

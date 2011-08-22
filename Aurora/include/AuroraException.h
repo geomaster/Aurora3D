@@ -56,7 +56,7 @@
 		\
         const char* what() const throw() \
         { \
-            return Aurora::String(description) + Aurora::String("\n\nDetails:\n") + mDetails; \
+            return (String(description) + String("\nDetails:\n") + mDetails).c_str(); \
         } \
         \
         virtual ~name() throw() \
@@ -96,8 +96,9 @@ namespace Aurora
     AURORA_DEFINE_EXCEPTION(InternalErrorException, "An internal error has occurred inside Aurora.");
     // TODO: add more exceptions if needed
 
-	AURORA_DEFINE_EXCEPTION_INHERIT(DuplicateNameException, IllegalOperationException, "Attempt to add an already-existing node name into the scene graph.");
-	AURORA_DEFINE_EXCEPTION_INHERIT(DuplicateParentException, IllegalOperationException, "Attempt to attach a node that is already a child of another node.");
+	AURORA_DEFINE_EXCEPTION_INHERIT(NonExistentException, IllegalOperationException, "An unrecognized object was required.");
+	AURORA_DEFINE_EXCEPTION_INHERIT(NonExistentNameException, NonExistentException, "An object of an unrecognized name was required.");
+	AURORA_DEFINE_EXCEPTION_INHERIT(DuplicateParentException, IllegalOperationException, "An object is already a child of another object.");
 }
 
 #endif // __AURORA_EXCEPTION_H__

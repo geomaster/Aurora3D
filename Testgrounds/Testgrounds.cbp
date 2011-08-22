@@ -17,8 +17,8 @@
 					<Add option="-std=c++0x" />
 					<Add option="-g" />
 					<Add option="-DDEBUG=1" />
+					<Add option="-DNDEBUG=1" />
 					<Add option="-D_DEBUG=1" />
-					<Add option="-D_NDEBUG=1" />
 					<Add directory="../Aurora/include" />
 				</Compiler>
 				<Linker>
@@ -46,7 +46,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="AllocTests.cpp" />
+		<Unit filename="SmgrTests.cpp" />
+		<Unit filename="TestPipeline.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />

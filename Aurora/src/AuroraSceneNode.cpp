@@ -1,164 +1,221 @@
 /*
-    This file is part of Aurora Game Engine.
+	This file is part of Aurora Game Engine.
 
-    Aurora Game Engine is free software: you can redistribute it and/or modify
-    it under the terms of the GNU Lesser General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+	Aurora Game Engine is free software: you can redistribute it and/or modify
+	it under the terms of the GNU Lesser General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
 
-    Aurora Game Engine is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Lesser General Public License for more details.
+	Aurora Game Engine is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU Lesser General Public License for more details.
 
-    You should have received a copy of the GNU Lesser General Public License
-    along with Aurora Game Engine.  If not, see <http://www.gnu.org/licenses/>.
+	You should have received a copy of the GNU Lesser General Public License
+	along with Aurora Game Engine.  If not, see <http://www.gnu.org/licenses/>.
 
 	Copyright (C) David Davidovic (Geomaster) 2011.
 
 */
 #include "AuroraSceneNode.h"
+#include "AuroraScene.h"
+#include "AuroraEntity.h"
+#include "AuroraException.h"
+
 using namespace Aurora;
 
-Matrix4 Transform::toMatrix(bool IsQuaternionUnit) const
+void SceneNode::addChild(SceneNode* Child)
 {
-    Matrix4 mat = (IsQuaternionUnit? Rotation.toRotationMatrix4Unit() : Rotation.toRotationMatrix4());
-    mat *= Matrix4::fromScale(Scale.getX(), Scale.getY(), Scale.getZ());
+	if (Child->getParent())
+		throw DuplicateParentException();
 
-    mat.setEntry(0, 3, Translation.getX());
-    mat.setEntry(1, 3, Translation.getY());
-    mat.setEntry(2, 3, Translation.getZ());
-
-    return mat;
-}
-
-void SceneNode::addChild(SceneNode *Child)
-{
-	String childName = Child->getName();
-	if (mChildren.find(childName) != mChildren.end())
-	{
-        // TODO: throw an exception
-	}
-	else
-	{
-	    SceneNode* oldParent = Child->mParent;
-	    oldParent->removeChild(Child);
-	    Child->mParent = this;
-	    mChildren.insert(std::make_pair(childName, Child));
-	}
-}
-
-void SceneNode::removeChild(String ChildName)
-{
-    ChildrenMapIterator it = mChildren.find(ChildName);
-    if (it != mChildren.end())
-    {
-        it->second->mParent = NULL;
-        mChildren.erase(it);
-    }
+	mChildren.insert(ChildrenMap::value_type(Child->getName(), Child));
+	Child->setParent(this);
 }
 
 void SceneNode::removeChild(SceneNode* Child)
 {
-    removeChild(Child->getName());
+	removeChild(Child->getName());
 }
 
- void SceneNode::removeAndDestroyChild(SceneNode *Child)
- {
-    removeChild(Child->getName());
-    delete Child;
- }
+void SceneNode::removeChild(String ChildName)
+{
+	ChildrenMapIterator it = mChildren.find(ChildName);
+	AURORA_ASSERT(it != mChildren.end(), "The node supplied is not a child of this node.");
+
+	it->second->_notifyDetached();
+	mChildren.erase(it);
+}
+
+SceneNode* SceneNode::getChildByName(String Name) const
+{
+	ChildrenMapConstIterator it = mChildren.find(Name);
+	if (it == mChildren.end())
+	{
+		throw NonExistentNameException();
+	}
+	else return it->second;
+}
+
+Transform SceneNode::getAbsoluteTransform()
+{
+	if (!mNeedsUpdate) return mAbsoluteTransform;
+	_updateAbsoluteTransform(mParent->getAbsoluteTransform(), false);
+
+	return mAbsoluteTransform;
+}
+
+void SceneNode::translate(const Vector3D& Translation, TransformSpace RelativeTo)
+{
+	//TODO: Check if this all works fine!
+	Vector3D transl = Translation;
+	switch(RelativeTo)
+	{
+	case ETS_Parent:
+		break;
+
+	case ETS_Local:
+		transl = mTransform.Rotation * transl;
+		transl *= mTransform.Scale;
+		break;
+
+	case ETS_World:
+		transl -= mParent->getAbsoluteTransform().Translation;
+		break;
+
+	default:
+		break;
+	}
+
+	mTransform.Translation += transl;
+}
+
+void SceneNode::rotate(const Quaternion& Rotation, TransformSpace RelativeTo)
+{
+	//TODO: Check if this all works fine!
+	Quaternion rot = Rotation;
+	switch(RelativeTo)
+	{
+	case ETS_Parent:
+		break;
+
+	case ETS_Local:
+		AURORA_ASSERT(false, "No idea about this. Check with OGRE code and remove this assertion when sure");
+		break;
+
+	case ETS_World:
+		rot *= mParent->getAbsoluteTransform().Rotation.getInverse();
+		break;
+
+	default:
+		break;
+	}
+
+	mTransform.Rotation *= rot;
+}
+
+void SceneNode::scale(const Vector3D& Scale, TransformSpace RelativeTo)
+{
+	//TODO: Check if this all works fine!
+	Vector3D scale = Scale;
+	switch(RelativeTo)
+	{
+	case ETS_Parent:
+		break;
+
+	case ETS_Local:
+		AURORA_ASSERT(false, "No idea about this. Check with OGRE code and remove this assertion when sure");
+		break;
+
+	case ETS_World:
+		scale /= mParent->getAbsoluteTransform().Scale;
+		break;
+
+	default:
+		break;
+	}
+
+	mTransform.Scale *= scale;
+}
+
+Transform SceneNode::_updateAbsoluteTransform(const Transform& ParentTransform, bool UpdateChildren)
+{
+	Transform thisTransform = ParentTransform.concatenate(mTransform);
+	mTransform = thisTransform;
+
+	if (UpdateChildren)
+	{
+		for (ChildrenMapIterator it = mChildren.begin(); it != mChildren.end(); ++it)
+			it->second->_updateAbsoluteTransform(thisTransform, true);
+	}
+
+	mNeedsUpdate = false;
+	if (!UpdateChildren)
+		_notifyChildrenNeedUpdate();
+
+	return thisTransform;
+}
+
+SceneNode* SceneNode::createChildSceneNode(String Name, const Transform& ChildTransform)
+{
+	SceneNode* n;
+	n = mScene->createSceneNode(Name, NULL);
+	n->setTransform(ChildTransform);
+	addChild(n);
+
+	return n;
+}
+
+SceneNode* SceneNode::createChildSceneNode(String Name, const Vector3D& Translation,
+				 const Quaternion& Rotation,
+				 const Vector3D& Scale)
+{
+	return createChildSceneNode(Name, Transform(Translation, Rotation, Scale));
+}
+
+void SceneNode::removeAndDestroyChild(SceneNode *Child)
+{
+	removeAndDestroyChild(Child->getName());
+}
 
 void SceneNode::removeAndDestroyChild(String ChildName)
 {
-    ChildrenMapIterator it = mChildren.find(ChildName);
-    if (it != mChildren.end())
-    {
-        it->second->mParent = NULL;
-        mChildren.erase(it);
-        delete it->second;
-    }
+	ChildrenMapIterator it = mChildren.find(ChildName);
+	AURORA_ASSERT(it != mChildren.end(), "Node is not a children of this scene node");
+
+	mScene->destroySceneNode(it->second);
+	mChildren.erase(it);
 }
 
 void SceneNode::removeAndDestroyChildren()
 {
-    for (ChildrenMapIterator it = mChildren.begin(); it != mChildren.end(); ++it)
-        delete it->second;
+	for (ChildrenMapIterator it = mChildren.begin(); it != mChildren.end(); ++it)
+		mScene->destroySceneNode(it->second);
 
-    mChildren.clear();
+	mChildren.clear();
 }
 
-SceneNode* SceneNode::getChildByName(String Name)
+void SceneNode::attachEntity(Entity* NewEntity)
 {
-    ChildrenMapIterator it = mChildren.find(Name);
-    if (it != mChildren.end())
-        return it->second;
+	if (NewEntity->getParent())
+		throw DuplicateParentException();
 
-    return NULL;
+	NewEntity->onAttached(this);
+	mEntities.insert(NewEntity);
 }
 
-void SceneNode::setParent(SceneNode *Parent)
+void SceneNode::detachEntity(Entity* OldEntity)
 {
-    Parent->addChild(this);
-}
+	EntityListIterator it = mEntities.find(OldEntity);
+	if (it == mEntities.end())
+		throw NonExistentException();
 
-Transform SceneNode::getAbsoluteTransform() const
- {
-     if (!mNeedsUpdate)
-        return mAbsoluteTransform;
-
-     if (mIsRoot)
-     {
-         mNeedsUpdate = false;
-         mAbsoluteTransform = mTransform;
-
-         return mAbsoluteTransform;
-     }
-     else
-     {
-         Transform parentTransform = mParent->getAbsoluteTransform();
-         mAbsoluteTransform = parentTransform.concatenate(mTransform);
-         mNeedsUpdate = false;
-
-         return mAbsoluteTransform;
-     }
-}
-
-void SceneNode::_setAbsoluteTransform(const Transform& ParentTransform, bool UpdateChildren)
-{
-    mAbsoluteTransform = ParentTransform.concatenate(mTransform);
-    mNeedsUpdate = false;
-    if (UpdateChildren && mChildren.size())
-        for (ChildrenMapIterator it = mChildren.begin(); it != mChildren.end(); ++it)
-            it->second->_setAbsoluteTransform(mAbsoluteTransform, UpdateChildren);
-}
-
-void SceneNode::_notifyNeedsUpdate()
-{
-    mNeedsUpdate = false;
-}
-
-SceneNode* SceneNode::createChild(String Name, const Transform& ChildTransform)
-{
-    SceneNode *node = new SceneNode(Name, this);
-    node->setTransform(ChildTransform);
-    mChildren.insert(make_pair(Name, node));
-
-    return node;
-}
-
-SceneNode* SceneNode::createChild(String Name, const Vector3D& Translation, const Quaternion& Rotation, const Vector3D& Scale)
-{
-    SceneNode *node = new SceneNode(Name, this);
-    Transform t(Translation, Rotation, Scale);
-    node->setTransform(t);
-    mChildren.insert(make_pair(Name, node));
-
-    return node;
+	OldEntity->onDetached();
+	mEntities.erase(it);
 }
 
 SceneNode::~SceneNode()
 {
-    for (ChildrenMapIterator it = mChildren.begin(); it != mChildren.end(); ++it)
-        delete it->second;
+	for (ChildrenMapIterator it = mChildren.begin(); it != mChildren.end(); ++it)
+		it->second->setParent(NULL);
 }

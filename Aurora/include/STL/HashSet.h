@@ -24,39 +24,35 @@
 
 #include "Base.h"
 #include <boost/unordered_set.hpp>
+#include "../AuroraHash.h"
 
 namespace Aurora
 {
 	namespace STL
 	{
-		template<typename K>
+		template<typename K, typename EqualComp = std::equal_to<K> >
 		struct HashSet
 		{
-			typedef boost::unordered_set<K> default_type;
+			typedef boost::unordered_set<K, EqualComp> default_type;
 			typedef typename default_type::value_type value_type;
 
-			typedef boost::unordered_set<K, Aurora::Hash<K>, typename STLAllocators<value_type>::Default> type;
+			typedef boost::unordered_set<K, AURORA_HASH(K), EqualComp, typename STLAllocators<value_type>::Default> type;
 
-			typedef typename IteratorWrappers<value_type, typename type::iterator>::Forward iterator;
-			typedef typename IteratorWrappers<value_type, typename type::iterator>::ConstantForward const_iterator;
-			typedef typename IteratorWrappers<value_type, typename type::iterator>::Reverse reverse_iterator;
-			typedef typename IteratorWrappers<value_type, typename type::iterator>::ConstantReverse const_reverse_iterator;
+			typedef typename IteratorWrappers<value_type, typename type::const_iterator>::ConstantForward const_iterator;
 
 //			typedef ContainerWrapper<value_type, type> container;
 		};
 
-		template<typename K>
+		template<typename K, typename EqualComp = std::equal_to<K> >
 		struct ApproximateHashSet
 		{
-			typedef boost::unordered_set<K> default_type;
+			typedef boost::unordered_set<K, EqualComp> default_type;
 			typedef typename default_type::value_type value_type;
 
-			typedef boost::unordered_set<K, Aurora::ApproximateHash<K>, typename STLAllocators<value_type>::Default> type;
+			typedef boost::unordered_set<K, AURORA_APPROX_HASH(K), EqualComp, typename STLAllocators<value_type>::Default> type;
 
 			typedef typename IteratorWrappers<value_type, typename type::iterator>::Forward iterator;
-			typedef typename IteratorWrappers<value_type, typename type::iterator>::ConstantForward const_iterator;
-			typedef typename IteratorWrappers<value_type, typename type::iterator>::Reverse reverse_iterator;
-			typedef typename IteratorWrappers<value_type, typename type::iterator>::ConstantReverse const_reverse_iterator;
+			typedef typename IteratorWrappers<value_type, typename type::const_iterator>::ConstantForward const_iterator;
 
 //			typedef ContainerWrapper<value_type, type> container;
 		};

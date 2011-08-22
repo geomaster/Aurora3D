@@ -21,22 +21,40 @@
 #define __AURORA_SCENE_H__
 #include "AuroraPrereqs.h"
 #include "AuroraAllocatedObject.h"
+#include <STL/HashSet.h>
 #include <STL/Vector.h>
+
+#define AURORA_SCENE_MAX_FREE_SLOTS				10
 
 namespace Aurora
 {
+	// On caching level 1, the scene reuses some pointers and doesn't deallocate them
+	// right away in order to avoid expensive allocation/deallocation.
+
 	class Scene : virtual public Alloc
 	{
 	protected:
+		typedef STL::HashSet<SceneNode*>::type NodeSet;
+		typedef NodeSet::iterator NodeSetIterator;
+		typedef NodeSet::const_iterator NodeSetConstIterator;
+
+		typedef STL::Vector<SceneNode*>::type FreeSlotList;
+		typedef FreeSlotList::iterator FreeSlotListIterator;
+		typedef FreeSlotList::const_iterator FreeSlotListConstIterator;
+
 		SceneNode* mRootNode;
 		SceneManager* mSceneManager;
-		STL::Vector<SceneNode*>::type mCreatedNodes;
+		NodeSet mCreatedNodes;
+
+#		if AURORA_CACHING_LEVEL >= 1
+		FreeSlotList mFreeSlots;
+#		endif
 
 	public:
 		Scene();
 
-		virtual void createSceneNode();
-		virtual void destroySceneNode(SceneNode *ToDestroy);
+		virtual SceneNode* createSceneNode(String Name, SceneNode* Parent = NULL);
+		virtual void destroySceneNode(SceneNode* ToDestroy);
 
 		virtual void setSceneManager(SceneManager* NewMgr)
 		{
@@ -52,6 +70,8 @@ namespace Aurora
 		{
 			return mRootNode;
 		}
+
+		virtual ~Scene();
 	};
 };
 
