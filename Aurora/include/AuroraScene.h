@@ -21,8 +21,8 @@
 #define __AURORA_SCENE_H__
 #include "AuroraPrereqs.h"
 #include "AuroraAllocatedObject.h"
-#include <STL/HashSet.h>
-#include <STL/Vector.h>
+#include "STL/HashSet.h"
+#include "STL/Vector.h"
 
 #define AURORA_SCENE_MAX_FREE_SLOTS				10
 

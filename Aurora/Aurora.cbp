@@ -64,7 +64,6 @@
 		<Unit filename="include/AuroraMemoryConfig.h" />
 		<Unit filename="include/AuroraMemoryTracker.h" />
 		<Unit filename="include/AuroraNedAllocator.h" />
-		<Unit filename="include/AuroraPipeline.h" />
 		<Unit filename="include/AuroraPlatform.h" />
 		<Unit filename="include/AuroraPrereqs.h" />
 		<Unit filename="include/AuroraQuaternion.h" />

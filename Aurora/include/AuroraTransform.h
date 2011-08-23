@@ -58,7 +58,10 @@ namespace Aurora
 
 		inline Transform concatenate(const Transform& other) const
 		{
-			return Transform(Translation + other.Translation, Rotation * other.Rotation, Scale * other.Scale);
+			Transform concat;
+			concat.Rotation = Rotation * other.Rotation;
+			concat.Scale = Scale * other.Scale;
+			concat.Translation = other.Rotation * (other.Scale * Translation) + other.Translation; 
 		}
 
 		inline void append(const Transform &other)

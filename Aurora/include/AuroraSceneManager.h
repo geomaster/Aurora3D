@@ -22,9 +22,9 @@
 #include "AuroraPrereqs.h"
 #include "AuroraScene.h"
 #include "AuroraTransform.h"
-#include <STL/Vector.h>
-#include <STL/Set.h>
-#include <STL/HashMap.h>
+#include "STL/Vector.h"
+#include "STL/Set.h"
+#include "STL/HashMap.h"
 
 namespace Aurora
 {

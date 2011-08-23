@@ -1,8 +1,5 @@
 #include "TestEntity.h"
-#include <AuroraScene.h>
-#include <AuroraSceneManager.h>
-#include <AuroraSceneNode.h>
-#include <AuroraException.h>
+#include <Aurora.h>
 
 using namespace Aurora;
 
@@ -44,7 +41,17 @@ int main()
 	puts("***********");
 	smgr->update();
 	puts("***********");
+	puts("");
+
+	// Be a good boy and clean up after yourself!
+	AURORA_DELETE smgr;
+	AURORA_DELETE scene;
+	AURORA_DELETE yvonne;
+	AURORA_DELETE michael;
+
+	Aurora::MemoryTracker::getSingletonPtr()->report(std::cout);
 
 	{char c;scanf("%c",&c);}
+
 	return 0;
 }

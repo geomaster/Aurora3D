@@ -68,20 +68,26 @@ Transform SceneNode::getAbsoluteTransform()
 
 void SceneNode::translate(const Vector3D& Translation, TransformSpace RelativeTo)
 {
-	//TODO: Check if this all works fine!
-	Vector3D transl = Translation;
+	Vector3D transl;
+	Transform parentT;
+
 	switch(RelativeTo)
 	{
 	case ETS_Parent:
 		break;
 
 	case ETS_Local:
-		transl = mTransform.Rotation * transl;
-		transl *= mTransform.Scale;
+		transl = mTransform.Rotation * Translation;
 		break;
 
 	case ETS_World:
-		transl -= mParent->getAbsoluteTransform().Translation;
+		if (mParent)
+		{
+			parentT = mParent->getAbsoluteTransform();
+			// Negate the global rotation, apply the translation, take into account
+			// parent's scale
+			transl = (parentT.Rotation.getInverse() * Translation) / parentT.Scale;
+		}
 		break;
 
 	default:
@@ -95,26 +101,32 @@ void SceneNode::translate(const Vector3D& Translation, TransformSpace RelativeTo
 
 void SceneNode::rotate(const Quaternion& Rotation, TransformSpace RelativeTo)
 {
-	//TODO: Check if this all works fine!
-	Quaternion rot = Rotation;
+	Transform t;
 	switch(RelativeTo)
 	{
 	case ETS_Parent:
+		// Note that we are applying the given rotation first and then the previous
+		// one
+		mTransform.Rotation = Rotation * mTransform.Rotation;
 		break;
 
 	case ETS_Local:
-		AURORA_ASSERT(false, "No idea about this. Check with OGRE code and remove this assertion when sure");
+		// Note that we just concatenate the rotation because of the local transform space
+		mTransform.Rotation *= Rotation;
 		break;
 
 	case ETS_World:
-		rot *= mParent->getAbsoluteTransform().Rotation.getInverse();
+		t = getAbsoluteTransform();
+		// q^-1 p q
+		// First we negate the absolute transform, apply the given world transform,
+		// then put back into our coordinate frame by transforming again
+		mTransform.Rotation *= t.Rotation.getInverse() * Rotation * t.Rotation;
 		break;
 
 	default:
 		break;
 	}
 
-	mTransform.Rotation *= rot;
 	_notifyChildrenNeedUpdate();
 	_notifyNeedsUpdate();
 }
@@ -229,6 +241,8 @@ void SceneNode::detachEntity(Entity* OldEntity)
 
 SceneNode::~SceneNode()
 {
+	/* why did i do this in the first place?
 	for (ChildrenMapIterator it = mChildren.begin(); it != mChildren.end(); ++it)
 		it->second->setParent(NULL);
+	*/
 }

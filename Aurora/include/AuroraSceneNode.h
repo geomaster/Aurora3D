@@ -21,8 +21,8 @@
 #define __AURORA_SCENE_NODE_H__
 #include "AuroraPrereqs.h"
 #include "AuroraTransform.h"
-#include <STL/HashSet.h>
-#include <STL/HashMap.h>
+#include "STL/HashSet.h"
+#include "STL/HashMap.h"
 
 namespace Aurora
 {
