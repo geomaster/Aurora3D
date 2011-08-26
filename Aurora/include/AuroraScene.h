@@ -53,7 +53,12 @@ namespace Aurora
 	public:
 		Scene();
 
-		virtual SceneNode* createSceneNode(String Name, SceneNode* Parent = NULL);
+		virtual SceneNode* createSceneNode(String Name)
+		{
+			return createSceneNode(Name, mRootNode);
+		}
+		virtual SceneNode* createSceneNode(String Name, SceneNode* Parent);
+
 		virtual void destroySceneNode(SceneNode* ToDestroy);
 
 		virtual void setSceneManager(SceneManager* NewMgr)

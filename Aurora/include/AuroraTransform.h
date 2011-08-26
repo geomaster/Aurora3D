@@ -35,23 +35,23 @@ namespace Aurora
 
 	struct Transform : virtual public SSEAlloc
 	{
-		inline Transform() : Translation(Real( 0.0 )), Rotation(Quaternion::Identity), Scale(Real( 1.0 ))
+		inline Transform() : Position(Real( 0.0 )), Orientation(Quaternion::Identity), Scale(Real( 1.0 ))
 		{
 		}
 
-		inline Transform(const Vector3D& _Translation, const Quaternion& _Rotation, const Vector3D& _Scale) : Translation(_Translation), Rotation(_Rotation), Scale(_Scale)
+		inline Transform(const Vector3D& _Position, const Quaternion& _Orientation, const Vector3D& _Scale) : Position(_Position), Orientation(_Orientation), Scale(_Scale)
 		{
 		}
 
-		Vector3D Translation;
-		Quaternion Rotation;
+		Vector3D Position;
+		Quaternion Orientation;
 		Vector3D Scale;
 
 		Matrix4 toMatrix(bool IsQuaternionUnit = true) const
 		{
 			Matrix4 mat;
-			mat = (IsQuaternionUnit? Rotation.toRotationMatrix4Unit() : Rotation.toRotationMatrix4());
-			mat *= Matrix4::fromTranslation(Translation);
+			mat = (IsQuaternionUnit? Orientation.toRotationMatrix4Unit() : Orientation.toRotationMatrix4());
+			mat *= Matrix4::fromTranslation(Position);
 			mat *= Matrix4::fromScale(Scale);
 			return mat;
 		}
@@ -59,15 +59,19 @@ namespace Aurora
 		inline Transform concatenate(const Transform& other) const
 		{
 			Transform concat;
-			concat.Rotation = Rotation * other.Rotation;
+			concat.Orientation = Orientation * other.Orientation;
 			concat.Scale = Scale * other.Scale;
-			concat.Translation = other.Rotation * (other.Scale * Translation) + other.Translation; 
+
+			// Transform the displacement vector
+			concat.Position = Orientation * (Scale * other.Position) + Position; 
+
+			return concat;
 		}
 
 		inline void append(const Transform &other)
 		{
-			Translation += other.Translation;
-			Rotation *= other.Rotation;
+			Position = other.Orientation * (other.Scale * Position) + other.Position;
+			Orientation *= other.Orientation;
 			Scale *= other.Scale;
 		}
 	};

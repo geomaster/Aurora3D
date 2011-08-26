@@ -149,6 +149,15 @@ namespace Aurora
 		Matrix4 getTransposed() const;
 		void transpose();
 
+		inline bool equals(const Matrix4& other)
+		{
+			for (uint i = 0; i < 16; ++i)
+				if (mComponents[i] != other.mComponents[i])
+					return false;
+
+			return true;
+		}
+
 		inline Matrix4 operator + (const Matrix4& other) const
 		{
 			Matrix4 res;

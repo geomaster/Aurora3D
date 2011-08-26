@@ -173,6 +173,11 @@ namespace Aurora
 		Matrix4 toRotationMatrix4() const;
 		Matrix4 toRotationMatrix4Unit() const;
 
+		bool equals(const Quaternion& other, Real Epsilon = AURORA_FPTOLERANCE) const
+		{
+			return (Math::equal(*mW, *other.mW) && Math::equal(*mX, *other.mX, Epsilon) && Math::equal(*mY, *other.mY, Epsilon) && Math::equal(*mZ, *other.mZ));
+		}
+
 		inline Quaternion operator + (const Quaternion& other) const
 		{
 #			if AURORA_SSE_ENABLED
@@ -241,13 +246,27 @@ namespace Aurora
 
 		inline Quaternion operator / (Real Scalar) const
 		{
-#           if AURORA_SSE_ENABLED
-            Quaternion q;
-            SSE::packedMultiplyScalar(mComponents, Real( 1.0 ) / Scalar, q.mComponents);
-            return q;
-#           else
-            return Quaternion(*mW / Scalar, *mX / Scalar, *mY / Scalar, *mZ / Scalar);
-#           endif
+#		if AURORA_SSE_ENABLED
+		Quaternion q;
+		SSE::packedMultiplyScalar(mComponents, Real( 1.0 ) / Scalar, q.mComponents);
+		return q;
+#		else
+		return Quaternion(*mW / Scalar, *mX / Scalar, *mY / Scalar, *mZ / Scalar);
+#		endif
+		}
+
+		inline Quaternion operator =  (const Quaternion& other)
+		{
+#			if AURORA_CACHING_LEVEL >= 1
+			mLengthDirty = other.mLengthDirty;
+			if (!mLengthDirty) mLength = other.mLength;
+			mNormDirty = other.mNormDirty;
+			if (!mNormDirty) mNorm = other.mNorm;
+#			endif
+
+			memcpy(mComponents, other.mComponents, 4 * sizeof(Real));
+
+			return *this;
 		}
 
 		inline Quaternion operator += (const Quaternion& other)

@@ -142,6 +142,15 @@ namespace Aurora
 			else return inverted == getTransposed();
 		}
 
+		inline bool equals(const Matrix3& other) const
+		{
+			for (uint i = 0; i < 9; ++i)
+				if (mComponents[i] != other.mComponents[i])
+					return false;
+
+			return true;
+		}
+
 		inline Matrix3 operator + (const Matrix3& other) const
 		{
 			return Matrix3(

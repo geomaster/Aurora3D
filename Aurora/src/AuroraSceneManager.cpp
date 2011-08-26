@@ -39,7 +39,7 @@ void SceneManager::updateSceneGraph(SceneNode *Start, const Transform& ParentTra
 	if (!Force && Start->needsUpdate())
 		DoForce = true;
 
-	Transform t = Start->_updateAbsoluteTransform(ParentTransform, false, Force, false);
+	Transform t = Start->_updateAbsoluteTransform(ParentTransform, false, Force);
 
 	if (Start->getNumberEntities())
 	{
@@ -57,7 +57,7 @@ void SceneManager::updateSceneGraph(SceneNode *Start, const Transform& ParentTra
 		while (it.hasMoreElements())
 		{
 			SceneNode *node = it.get();
-			node->_updateAbsoluteTransform(t, false, DoForce, false);
+			node->_updateAbsoluteTransform(t, false, DoForce);
 			updateSceneGraph(node);
 			it.increment();
 		}

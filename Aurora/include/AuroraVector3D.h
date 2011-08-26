@@ -186,6 +186,11 @@ namespace Aurora
 		Real getDistanceTo(const Vector3D& other) const;
 		Real getSquaredDistanceTo(const Vector3D& other) const;
 
+		bool equals(const Vector3D& other, Real Epsilon = AURORA_FPTOLERANCE) const
+		{
+			return (Math::equal(*mX, *other.mX, Epsilon) && Math::equal(*mY, *other.mY, Epsilon) && Math::equal(*mZ, *other.mZ));
+		}
+
 		inline Vector3D operator + (const Vector3D& other) const
 		{
 			return Vector3D(*mX + *other.mX, *mY + *other.mY, *mZ + *other.mZ);

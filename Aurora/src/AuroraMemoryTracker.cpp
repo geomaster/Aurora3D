@@ -62,7 +62,7 @@ void MemoryTracker::report(std::ostream& Where)
 
 	if (!mAllocations.size())
 	{
-		Where << "No deallocated memory detected.";
+		Where << "No non-deallocated memory detected.";
 	}
 	else
 	{

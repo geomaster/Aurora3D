@@ -24,7 +24,7 @@
 #if AURORA_MEMORY_TRACKING
 
 #include "AuroraHash.h"
-#include <boost/unordered_map.hpp>
+#include <STL/HashMap.h>
 #include <iostream>
 
 #if AURORA_COMPILER == AURORA_COMPILER_MSVC
@@ -47,7 +47,9 @@ namespace Aurora
 			uint Line;
 		};
 
-		typedef unordered_map<void*, MemoryAlloc, Hash<void*> > AllocationMap;
+		// default_type is used because type uses allocators, which in turn creates
+		// a stack overflow
+		typedef STL::HashMap<void*, MemoryAlloc>::default_type AllocationMap;
 		typedef AllocationMap::iterator AllocationMapIterator;
 
 		AllocationMap mAllocations;

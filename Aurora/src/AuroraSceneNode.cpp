@@ -61,7 +61,9 @@ SceneNode* SceneNode::getChildByName(String Name) const
 Transform SceneNode::getAbsoluteTransform()
 {
 	if (!mNeedsUpdate) return mAbsoluteTransform;
-	_updateAbsoluteTransform(mParent->getAbsoluteTransform(), false);
+	if (mParent)
+		_updateAbsoluteTransform(mParent->getAbsoluteTransform(), false);
+	else mAbsoluteTransform = mTransform;
 
 	return mAbsoluteTransform;
 }
@@ -77,7 +79,7 @@ void SceneNode::translate(const Vector3D& Translation, TransformSpace RelativeTo
 		break;
 
 	case ETS_Local:
-		transl = mTransform.Rotation * Translation;
+		transl = mTransform.Orientation * Translation;
 		break;
 
 	case ETS_World:
@@ -86,7 +88,7 @@ void SceneNode::translate(const Vector3D& Translation, TransformSpace RelativeTo
 			parentT = mParent->getAbsoluteTransform();
 			// Negate the global rotation, apply the translation, take into account
 			// parent's scale
-			transl = (parentT.Rotation.getInverse() * Translation) / parentT.Scale;
+			transl = (parentT.Orientation.getInverse() * Translation) / parentT.Scale;
 		}
 		break;
 
@@ -94,7 +96,7 @@ void SceneNode::translate(const Vector3D& Translation, TransformSpace RelativeTo
 		break;
 	}
 
-	mTransform.Translation += transl;
+	mTransform.Position += transl;
 	_notifyChildrenNeedUpdate();
 	_notifyNeedsUpdate();
 }
@@ -106,13 +108,13 @@ void SceneNode::rotate(const Quaternion& Rotation, TransformSpace RelativeTo)
 	{
 	case ETS_Parent:
 		// Note that we are applying the given rotation first and then the previous
-		// one
-		mTransform.Rotation = Rotation * mTransform.Rotation;
+		// one (default)
+		mTransform.Orientation = Rotation * mTransform.Orientation;
 		break;
 
 	case ETS_Local:
 		// Note that we just concatenate the rotation because of the local transform space
-		mTransform.Rotation *= Rotation;
+		mTransform.Orientation *= Rotation;
 		break;
 
 	case ETS_World:
@@ -120,7 +122,7 @@ void SceneNode::rotate(const Quaternion& Rotation, TransformSpace RelativeTo)
 		// q^-1 p q
 		// First we negate the absolute transform, apply the given world transform,
 		// then put back into our coordinate frame by transforming again
-		mTransform.Rotation *= t.Rotation.getInverse() * Rotation * t.Rotation;
+		mTransform.Orientation *= t.Orientation.getInverse() * Rotation * t.Orientation;
 		break;
 
 	default:
@@ -131,33 +133,7 @@ void SceneNode::rotate(const Quaternion& Rotation, TransformSpace RelativeTo)
 	_notifyNeedsUpdate();
 }
 
-void SceneNode::scale(const Vector3D& Scale, TransformSpace RelativeTo)
-{
-	//TODO: Check if this all works fine!
-	Vector3D scale = Scale;
-	switch(RelativeTo)
-	{
-	case ETS_Parent:
-		break;
-
-	case ETS_Local:
-		AURORA_ASSERT(false, "No idea about this. Check with OGRE code and remove this assertion when sure");
-		break;
-
-	case ETS_World:
-		scale /= mParent->getAbsoluteTransform().Scale;
-		break;
-
-	default:
-		break;
-	}
-
-	mTransform.Scale *= scale;
-	_notifyChildrenNeedUpdate();
-	_notifyNeedsUpdate();
-}
-
-Transform SceneNode::_updateAbsoluteTransform(const Transform& ParentTransform, bool Propagate, bool Force, bool InformChildren)
+Transform SceneNode::_updateAbsoluteTransform(const Transform& ParentTransform, bool Propagate, bool Force)
 {
 	if (Force || mNeedsUpdate)
 	{
@@ -167,13 +143,15 @@ Transform SceneNode::_updateAbsoluteTransform(const Transform& ParentTransform, 
 		if (Propagate)
 		{
 			for (ChildrenMapIterator it = mChildren.begin(); it != mChildren.end(); ++it)
-				// We need to force here since we haven't told this child it needs an update
-				it->second->_updateAbsoluteTransform(thisTransform, true, true, InformChildren);
+				it->second->_updateAbsoluteTransform(thisTransform, true, true);
 		}
 
 		mNeedsUpdate = false;
-		if (!Propagate && InformChildren)
-			_notifyChildrenNeedUpdate();
+
+		//i apparently had a logic collapse here, how can possibly children
+		//be uninformed when we recompute the update?
+		/*if (!Propagate && InformChildren)
+			_notifyChildrenNeedUpdate();*/
 
 		return thisTransform;
 	}
@@ -190,11 +168,11 @@ SceneNode* SceneNode::createChildSceneNode(String Name, const Transform& ChildTr
 	return n;
 }
 
-SceneNode* SceneNode::createChildSceneNode(String Name, const Vector3D& Translation,
-				 const Quaternion& Rotation,
+SceneNode* SceneNode::createChildSceneNode(String Name, const Vector3D& Position,
+				 const Quaternion& Orientation,
 				 const Vector3D& Scale)
 {
-	return createChildSceneNode(Name, Transform(Translation, Rotation, Scale));
+	return createChildSceneNode(Name, Transform(Position, Orientation, Scale));
 }
 
 void SceneNode::removeAndDestroyChild(SceneNode *Child)
@@ -241,8 +219,8 @@ void SceneNode::detachEntity(Entity* OldEntity)
 
 SceneNode::~SceneNode()
 {
-	/* why did i do this in the first place?
+	if (mParent) mParent->removeChild(mName);
+
 	for (ChildrenMapIterator it = mChildren.begin(); it != mChildren.end(); ++it)
 		it->second->setParent(NULL);
-	*/
 }

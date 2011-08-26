@@ -37,16 +37,19 @@ SceneNode* Scene::createSceneNode(String Name, SceneNode* Parent)
 	{
 		// Take the last slot
 		p = mFreeSlots.back();
-		AURORA_PLACEMENT_NEW(p) SceneNode(Name, this, Parent);
+		AURORA_PLACEMENT_NEW(p) SceneNode(Name, this);
 		mFreeSlots.pop_back();
 	}
 	else
 	{
-		p = AURORA_NEW SceneNode(Name, this, Parent);
+		p = AURORA_NEW SceneNode(Name, this);
 	}
 #	else
-	p = AURORA_NEW SceneNode(Name, this, Parent);
+	p = AURORA_NEW SceneNode(Name, this);
 #	endif
+
+	if (Parent) Parent->addChild(p); else p->setParent(Parent);
+
 
 	mCreatedNodes.insert(p);
 	return p;
@@ -85,7 +88,7 @@ Scene::~Scene()
 
 #	if AURORA_CACHING_LEVEL >= 1
 	for (FreeSlotListIterator it = mFreeSlots.begin(); it != mFreeSlots.end(); ++it)
-		AURORA_DELETE *it;
+		AURORA_DELETE_POD(*it, SceneNode*); // Dont' call any destructors; this memory is dead
 #	endif
 }
 

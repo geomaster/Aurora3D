@@ -33,7 +33,7 @@ namespace Aurora
 		template<typename K, typename V, typename EqualComp = std::equal_to<K> >
 		struct HashMap
 		{
-			typedef boost::unordered_map<K, V, EqualComp> default_type;
+			typedef boost::unordered_map<K, V> default_type;
 			typedef typename default_type::value_type value_type;
 
 			typedef boost::unordered_map<K, V, AURORA_HASH(K), EqualComp, typename STLAllocators<value_type>::Default> type;
@@ -49,7 +49,7 @@ namespace Aurora
 		template<typename K, typename V, typename EqualComp = std::equal_to<K> >
 		struct ApproximateHashMap
 		{
-			typedef boost::unordered_map<K, V, EqualComp> default_type;
+			typedef boost::unordered_map<K, V> default_type;
 			typedef typename default_type::value_type value_type;
 
 			typedef boost::unordered_map<K, V, AURORA_APPROX_HASH(K), EqualComp, typename STLAllocators<value_type>::Default> type;

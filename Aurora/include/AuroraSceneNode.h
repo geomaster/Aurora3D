@@ -89,7 +89,7 @@ namespace Aurora
 
 		virtual Transform getAbsoluteTransform();
 
-		virtual Transform _updateAbsoluteTransform(const Transform& ParentTransform, bool Propagate = true, bool Force = false, bool InformChildren = true);
+		virtual Transform _updateAbsoluteTransform(const Transform& ParentTransform, bool Propagate = true, bool Force = false);
         virtual void _notifyNeedsUpdate()
         {
         	mNeedsUpdate = true;
@@ -142,14 +142,14 @@ namespace Aurora
 			_notifyChildrenNeedUpdate();
 		}
 
-		virtual Vector3D getTranslation() const
+		virtual Vector3D getPosition() const
 		{
-			return mTransform.Translation;
+			return mTransform.Position;
 		}
 
-		virtual Quaternion getRotation() const
+		virtual Quaternion getOrientation() const
 		{
-			return mTransform.Rotation;
+			return mTransform.Orientation;
 		}
 
 		virtual Vector3D getScale() const
@@ -157,16 +157,16 @@ namespace Aurora
 			return mTransform.Scale;
 		}
 
-		virtual void setTranslation(const Vector3D& NewTranslation)
+		virtual void setPosition(const Vector3D& NewPosition)
 		{
-			mTransform.Translation = NewTranslation;
+			mTransform.Position = NewPosition;
 			_notifyChildrenNeedUpdate();
 			_notifyNeedsUpdate();
 		}
 
-		virtual void setRotation(const Quaternion& NewRotation)
+		virtual void setOrientation(const Quaternion& NewOrientation)
 		{
-			mTransform.Rotation = NewRotation;
+			mTransform.Orientation = NewOrientation;
 			_notifyChildrenNeedUpdate();
 			_notifyNeedsUpdate();
 		}
@@ -180,11 +180,10 @@ namespace Aurora
 
 		virtual void translate(const Vector3D& Translation, TransformSpace RelativeTo = ETS_Parent);
 		virtual void rotate(const Quaternion& Rotation, TransformSpace RelativeTo = ETS_Parent);
-		virtual void scale(const Vector3D& Scale, TransformSpace RelativeTo = ETS_Parent);
 
 		virtual SceneNode* createChildSceneNode(String Name, const Transform& ChildTransform = Transform());
-		virtual SceneNode* createChildSceneNode(String Name, const Vector3D& Translation,
-						 const Quaternion& Rotation = Quaternion::Identity,
+		virtual SceneNode* createChildSceneNode(String Name, const Vector3D& Position,
+						 const Quaternion& Orientation = Quaternion::Identity,
 						 const Vector3D& Scale = Vector3D(Real( 1.0 )));
 
 		virtual void attachEntity(Entity* NewEntity);
