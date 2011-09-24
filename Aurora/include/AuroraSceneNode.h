@@ -95,14 +95,7 @@ namespace Aurora
         	mNeedsUpdate = true;
         }
 
-		virtual void _notifyChildrenNeedUpdate()
-		{
-			for (ChildrenMapIterator it = mChildren.begin(); it != mChildren.end(); ++it)
-			{
-				it->second->_notifyNeedsUpdate();
-				it->second->_notifyChildrenNeedUpdate();
-			}
-		}
+		virtual void _notifyChildrenNeedUpdate();
 
 		virtual bool needsUpdate() const
 		{
@@ -136,12 +129,6 @@ namespace Aurora
 			return mTransform;
 		}
 
-		virtual void setTransform(const Transform& NewTransform)
-		{
-			mTransform = NewTransform;
-			_notifyChildrenNeedUpdate();
-		}
-
 		virtual Vector3D getPosition() const
 		{
 			return mTransform.Position;
@@ -157,26 +144,10 @@ namespace Aurora
 			return mTransform.Scale;
 		}
 
-		virtual void setPosition(const Vector3D& NewPosition)
-		{
-			mTransform.Position = NewPosition;
-			_notifyChildrenNeedUpdate();
-			_notifyNeedsUpdate();
-		}
-
-		virtual void setOrientation(const Quaternion& NewOrientation)
-		{
-			mTransform.Orientation = NewOrientation;
-			_notifyChildrenNeedUpdate();
-			_notifyNeedsUpdate();
-		}
-
-		virtual void setScale(const Vector3D& NewScale)
-		{
-			mTransform.Scale = NewScale;
-			_notifyChildrenNeedUpdate();
-			_notifyNeedsUpdate();
-		}
+		virtual void setPosition(const Vector3D& NewPosition);
+		virtual void setOrientation(const Quaternion& NewOrientation);
+		virtual void setScale(const Vector3D& NewScale);
+		virtual void setTransform(const Transform& NewTransform);
 
 		virtual void translate(const Vector3D& Translation, TransformSpace RelativeTo = ETS_Parent);
 		virtual void rotate(const Quaternion& Rotation, TransformSpace RelativeTo = ETS_Parent);

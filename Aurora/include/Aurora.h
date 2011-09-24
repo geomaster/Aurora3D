@@ -47,7 +47,7 @@
 #include "AuroraVector2D.h"
 #include "AuroraVector3D.h"
 #include "AuroraVector4D.h"
-// (A lot) more to come
+// ...more to come! ~geo
 
 // And my all-time favorite line of code:
 //

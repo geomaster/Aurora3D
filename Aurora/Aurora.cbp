@@ -54,8 +54,11 @@
 		</Compiler>
 		<Unit filename="include/AuroraAllocatedObject.h" />
 		<Unit filename="include/AuroraConfig.h" />
+		<Unit filename="include/AuroraDynamicLibrary.h" />
+		<Unit filename="include/AuroraEngine.h" />
 		<Unit filename="include/AuroraEntity.h" />
 		<Unit filename="include/AuroraException.h" />
+		<Unit filename="include/AuroraFrameListener.h" />
 		<Unit filename="include/AuroraHash.h" />
 		<Unit filename="include/AuroraIterator.h" />
 		<Unit filename="include/AuroraMath.h" />
@@ -86,6 +89,8 @@
 		<Unit filename="include/STL/Vector.h" />
 		<Unit filename="include/nedmalloc/malloc.c.h" />
 		<Unit filename="include/nedmalloc/nedmalloc.h" />
+		<Unit filename="src/AuroraDynamicLibrary.cpp" />
+		<Unit filename="src/AuroraEngine.cpp" />
 		<Unit filename="src/AuroraHash.cpp" />
 		<Unit filename="src/AuroraMath.cpp" />
 		<Unit filename="src/AuroraMatrix3.cpp" />

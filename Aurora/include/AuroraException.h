@@ -98,8 +98,19 @@ namespace Aurora
     // TODO: add more exceptions if needed
 
 	AURORA_DEFINE_EXCEPTION_INHERIT(NonExistentException, IllegalOperationException, "An unrecognized object was required.");
-	AURORA_DEFINE_EXCEPTION_INHERIT(NonExistentNameException, NonExistentException, "An object of an unrecognized name was required.");
+	AURORA_DEFINE_EXCEPTION_INHERIT(NonExistentObjectException, NonExistentException, "An unrecognized object was required.");
+	AURORA_DEFINE_EXCEPTION_INHERIT(NonExistentNameException, NonExistentObjectException, "An object of an unrecognized name was required.");
 	AURORA_DEFINE_EXCEPTION_INHERIT(DuplicateParentException, IllegalOperationException, "An object is already a child of another object.");
+	AURORA_DEFINE_EXCEPTION_INHERIT(DuplicateObjectException, IllegalOperationException, "An already-existing object was provided to a collection for adding.");
+	AURORA_DEFINE_EXCEPTION_INHERIT(DuplicateNameException, DuplicateObjectException, "A name conflict has occurred.");
+
+	AURORA_DEFINE_EXCEPTION_INHERIT(LibraryCallException, InternalErrorException, "A call to a platform-specific API regarding dynamic library has failed.");
+	AURORA_DEFINE_EXCEPTION_INHERIT(LibraryOpenException, LibraryCallException, "A call to a platform-specific dynamic library opening has failed.");
+	AURORA_DEFINE_EXCEPTION_INHERIT(LibraryReadException, LibraryCallException, "A call to a platform-specific dynamic library symbol reading has failed.");
+	AURORA_DEFINE_EXCEPTION_INHERIT(LibraryCloseException, LibraryCallException, "A call to a platform-specific dynamic library closing has failed.");
+	AURORA_DEFINE_EXCEPTION_INHERIT(LibraryNotOpenException, IllegalOperationException, "Attempt to retrieve a symbol from a non-open library.");
+
+	AURORA_DEFINE_EXCEPTION_INHERIT(BadModuleException, IllegalOperationException, "A module is nonexistent or ill-formed.");
 }
 
 #endif // __AURORA_EXCEPTION_H__

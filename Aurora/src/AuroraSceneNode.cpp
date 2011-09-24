@@ -42,19 +42,20 @@ void SceneNode::removeChild(SceneNode* Child)
 void SceneNode::removeChild(String ChildName)
 {
 	ChildrenMapIterator it = mChildren.find(ChildName);
-	AURORA_ASSERT(it != mChildren.end(), "The node supplied is not a child of this node.");
-
-	it->second->_notifyDetached();
-	mChildren.erase(it);
+	if (it == mChildren.end())
+		throw NonExistentNameException();
+	else
+	{
+		it->second->_notifyDetached();
+		mChildren.erase(it);
+	}
 }
 
 SceneNode* SceneNode::getChildByName(String Name) const
 {
 	ChildrenMapConstIterator it = mChildren.find(Name);
 	if (it == mChildren.end())
-	{
 		throw NonExistentNameException();
-	}
 	else return it->second;
 }
 
@@ -156,6 +157,43 @@ Transform SceneNode::_updateAbsoluteTransform(const Transform& ParentTransform, 
 		return thisTransform;
 	}
 	else return mAbsoluteTransform;
+}
+
+void SceneNode::_notifyChildrenNeedUpdate()
+{
+	for (ChildrenMapIterator it = mChildren.begin(); it != mChildren.end(); ++it)
+	{
+		it->second->_notifyNeedsUpdate();
+		it->second->_notifyChildrenNeedUpdate();
+	}
+}
+
+void SceneNode::setTransform(const Transform& NewTransform)
+{
+	mTransform = NewTransform;
+	_notifyChildrenNeedUpdate();
+	_notifyNeedsUpdate();
+}
+
+void SceneNode::setPosition(const Vector3D& NewPosition)
+{
+	mTransform.Position = NewPosition;
+	_notifyChildrenNeedUpdate();
+	_notifyNeedsUpdate();
+}
+
+void SceneNode::setOrientation(const Quaternion& NewOrientation)
+{
+	mTransform.Orientation = NewOrientation;
+	_notifyChildrenNeedUpdate();
+	_notifyNeedsUpdate();
+}
+
+void SceneNode::setScale(const Vector3D& NewScale)
+{
+	mTransform.Scale = NewScale;
+	_notifyChildrenNeedUpdate();
+	_notifyNeedsUpdate();
 }
 
 SceneNode* SceneNode::createChildSceneNode(String Name, const Transform& ChildTransform)

@@ -89,12 +89,15 @@ namespace Aurora
 #	define _CRT_SECURE_NO_WARNINGS				1
 #	endif
 
+	class	Engine;
 	class	Entity;
 	class	Exception;
+	class	FrameListener;
 	class	Math;
 	class	Matrix3;
 	class	Matrix4;
 	class	MemoryTracker;
+	class	Module;
 	class	SSE;
 	class	Quaternion;
 	class	Scene;
