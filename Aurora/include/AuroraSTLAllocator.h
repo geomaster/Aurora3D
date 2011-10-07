@@ -90,27 +90,27 @@ namespace Aurora
 	};
 
 	template<typename T, typename Allocator, typename oT>
-	inline AURORA_LIBRARY bool operator==(STLAllocator<T, Allocator> One, STLAllocator<oT, Allocator> Two)
+	inline bool operator==(STLAllocator<T, Allocator> One, STLAllocator<oT, Allocator> Two)
 	{
 		// yes, we have the same allocator here
 		return true;
 	}
 
 	template<typename T, typename Allocator, typename OtherType>
-	inline AURORA_LIBRARY bool operator==(STLAllocator<T, Allocator> One, OtherType Two)
+	inline bool operator==(STLAllocator<T, Allocator> One, OtherType Two)
 	{
 		return false;
 	}
 
 	template<typename T, typename Allocator, typename oT>
-	inline AURORA_LIBRARY bool operator!=(STLAllocator<T, Allocator> One, STLAllocator<oT, Allocator> Two)
+	inline bool operator!=(STLAllocator<T, Allocator> One, STLAllocator<oT, Allocator> Two)
 	{
 		// they're equal
 		return false;
 	}
 
 	template<typename T, typename Allocator, typename OtherType>
-	inline AURORA_LIBRARY bool operator!=(STLAllocator<T, Allocator> One, OtherType Two)
+	inline bool operator!=(STLAllocator<T, Allocator> One, OtherType Two)
 	{
 		// yes, they are indeed not equal.
 		return true;

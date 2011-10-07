@@ -24,6 +24,7 @@
 
 #include "AuroraAllocatedObject.h"
 #include "AuroraConfig.h"
+#include "AuroraEngine.h"
 #include "AuroraEntity.h"
 #include "AuroraException.h"
 #include "AuroraHash.h"

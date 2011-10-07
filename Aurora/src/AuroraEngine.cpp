@@ -60,6 +60,7 @@ Engine::ModuleSpec Engine::createModule(const String& Filename)
 	{
 		DynamicLibrary* lib = AURORA_NEW DynamicLibrary(Filename);
 		Module* (*moduleCreateFunc)();
+		// Ugly, ugly cast
 		moduleCreateFunc = reinterpret_cast<Module*(*)()>(lib->getSymbol("createInstance"));
 
 		if (moduleCreateFunc)
@@ -75,6 +76,7 @@ Engine::ModuleSpec Engine::createModule(const String& Filename)
 				spec.Lib = lib;
 				spec.Mod = m;
 				spec.SourceFilename = Filename;
+				spec.Installed = false;
 
 				return spec;
 			}
@@ -117,6 +119,7 @@ void Engine::shutdown()
 				modIt->Mod->uninstall(this);
 
 			modIt->Mod->onShutdown();
+			// TODO: Uninstall then shutdown or...?
 		}
 
 	// TODO: Resource managers and stuff
@@ -124,15 +127,21 @@ void Engine::shutdown()
 	mInitialized = false;
 }
 
-void Engine::addModule(String Filename)
+Module* Engine::addModule(String Filename)
 {
 	ModuleSpec spec = createModule(Filename);
 
 	if (!hasModule(spec.Name))
+	{
 		mModules[spec.Category].push_back(spec);
+		return spec.Mod;
+	}
 	else
+	{
 		// Already have the module with that name? Sorry pal
 		destroyModule(spec);
+		return NULL;
+	}
 }
 
 bool Engine::hasModule(String ModuleName)
@@ -231,7 +240,7 @@ void Engine::deactivateModulesInCategory(String CategoryName)
 	ModuleCategoryMapIterator it = mModules.find(CategoryName);
 	if (it != mModules.end())
 		for (ModuleListIterator modIt = it->second.begin(); modIt != it->second.end(); ++modIt)
-			modIt->Mod->deactivate();	
+			modIt->Mod->deactivate();
 }
 
 void Engine::registerSceneFactory(Factory<Scene>* SceneFactory)
@@ -327,7 +336,7 @@ void Engine::addFrameListener(FrameListener* Listener, ListenerPriority Priority
 	FrameListenerSpec spec;
 	spec.Listener = Listener;
 	spec.Priority = Priority;
-	
+
 	if (mListeners.find(spec) == mListeners.end())
 		throw DuplicateObjectException();
 	else
@@ -356,7 +365,7 @@ void Engine::removeFrameListener(FrameListener* Listener)
 
 bool Engine::doOneFrame()
 {
-	FrameEvent evt; 
+	FrameEvent evt;
 	// [first-order priority] TODO: Implement timing
 	evt.TimeSinceLastEvent = Real(0.0);
 	evt.TimeSinceLastFrame = Real(0.0);

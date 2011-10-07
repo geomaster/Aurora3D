@@ -92,7 +92,7 @@ namespace Aurora
 		typedef STL::HashMap<String, Factory<SceneManager>* >::type SceneManagerFactoryMap;
 		typedef SceneManagerFactoryMap::iterator SceneManagerFactoryMapIterator;
 		typedef SceneManagerFactoryMap::const_iterator SceneManagerFactoryMapConstIterator;
-		
+
 		// Due to the usage of std::greater and FrameListenerSpec's overloaded operator >, these
 		// listeners will be following a strict higher-priority-first ordering.
 		typedef STL::Set<FrameListenerSpec, std::greater<FrameListenerSpec> >::type ListenerList;
@@ -132,13 +132,13 @@ namespace Aurora
 		void initialize();
 		void shutdown();
 
-		void addModule(String Filename);
+		Module* addModule(String Filename);
 		void removeModule(String ModuleName);
 		bool hasModule(String ModuleName);
 
 		void installModules();
 		void uninstallModules();
-		
+
 		void activateModule(String Name);
 		void deactivateModule(String Name);
 		void deactivateAllModules();

@@ -20,11 +20,11 @@
 #include "AuroraDynamicLibrary.h"
 using namespace Aurora;
 
-DynamicLibrary::DynamicLibrary() : mOpen(false), mHandle(NULL)
+DynamicLibrary::DynamicLibrary() : mHandle(NULL), mOpen(false)
 {
 }
 
-DynamicLibrary::DynamicLibrary(const String& Filename) : mOpen(false), mHandle(NULL)
+DynamicLibrary::DynamicLibrary(const String& Filename) : mHandle(NULL), mOpen(false)
 {
 	open(Filename);
 }
@@ -37,7 +37,7 @@ void DynamicLibrary::open(String Filename)
 	AURORA_ASSERT(!mOpen, "close() failed to close the library");
 
 #	if AURORA_DYNLIB_API == 0
-	void *handle = dlopen(Filename.c_str());
+	void *handle = dlopen(Filename.c_str(), RTLD_LAZY);
 	if (!handle)
 		throw LibraryOpenException();
 	else mHandle = handle, mOpen = true;

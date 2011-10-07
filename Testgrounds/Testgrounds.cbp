@@ -46,8 +46,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="SaneEntity.h" />
-		<Unit filename="SmgrSanity.cpp" />
+		<Unit filename="ModuleLoadTest.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

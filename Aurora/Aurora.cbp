@@ -25,6 +25,7 @@
 				<Linker>
 					<Add library="pthread" />
 					<Add library="rt" />
+					<Add library="dl" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -45,6 +46,7 @@
 					<Add option="-s" />
 					<Add library="rt" />
 					<Add library="pthread" />
+					<Add library="dl" />
 				</Linker>
 			</Target>
 		</Build>
@@ -52,6 +54,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/Aurora.h" />
 		<Unit filename="include/AuroraAllocatedObject.h" />
 		<Unit filename="include/AuroraConfig.h" />
 		<Unit filename="include/AuroraDynamicLibrary.h" />
@@ -66,6 +69,7 @@
 		<Unit filename="include/AuroraMatrix4.h" />
 		<Unit filename="include/AuroraMemoryConfig.h" />
 		<Unit filename="include/AuroraMemoryTracker.h" />
+		<Unit filename="include/AuroraModule.h" />
 		<Unit filename="include/AuroraNedAllocator.h" />
 		<Unit filename="include/AuroraPlatform.h" />
 		<Unit filename="include/AuroraPrereqs.h" />

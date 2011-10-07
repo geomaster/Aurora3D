@@ -24,7 +24,7 @@
 #include <exception>
 
 #define AURORA_DEFINE_EXCEPTION(name, description) \
-    class name : public Exception \
+    class name : virtual public Exception \
     { \
     public: \
         virtual const char* what() const throw() \
@@ -39,7 +39,7 @@
     }
 
 #define AURORA_DEFINE_EXCEPTION_INHERIT(name, inheritfrom, description) \
-    class name : public inheritfrom \
+    class name : virtual public inheritfrom \
     { \
 	protected: \
 		Aurora::String mError; \
@@ -54,7 +54,7 @@
 			mError = String(description) + " (" + String(Details) + ")"; \
 		} \
 		\
-        const char* what() const throw() \
+        virtual const char* what() const throw() \
         { \
             return mError.c_str(); \
         } \
