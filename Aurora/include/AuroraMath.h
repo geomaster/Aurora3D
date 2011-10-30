@@ -186,8 +186,8 @@ namespace Aurora
 
 		static inline int compare(Real a, Real b, Real tolerance = AURORA_FPTOLERANCE)
 		{
-			Real d = fabs(b - a);
-			if (d <= tolerance)
+			Real d = a - b;
+			if (abs(d) <= tolerance)
 				return 0;
 			return (d<0.0 ? -1 : 1);
 		}

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_workspace_file>
 	<Workspace title="Workspace">
-		<Project filename="Testgrounds/Testgrounds.cbp" />
+		<Project filename="Testgrounds/Testgrounds.cbp" active="1" />
 		<Project filename="Aurora/Aurora.cbp" />
-		<Project filename="Testmodule/Testmodule.cbp" active="1" />
+		<Project filename="Testmodule/Testmodule.cbp" />
 	</Workspace>
 </CodeBlocks_workspace_file>
