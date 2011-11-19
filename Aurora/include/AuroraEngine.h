@@ -119,8 +119,6 @@ namespace Aurora
 		void loadModulesFromFile(const String& Filename);
 		// TODO: Resource managers
 
-		//void create
-			//TODO: createModule() and destroyModule(); use them in addModule and removeModule resp., decentralize
 		ModuleSpec createModule(const String& Filename);
 		void destroyModule(const ModuleSpec& Mod);
 

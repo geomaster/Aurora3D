@@ -23,7 +23,6 @@ int main()
 	e->activateModule("TestModule");
 	assert(m->activateFlagSet() && m->isActive());
 
-
 	cin.get();
 	return 0;
 }

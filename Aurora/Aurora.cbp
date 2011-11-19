@@ -14,8 +14,10 @@
 				<Option createDefFile="1" />
 				<Option createStaticLib="1" />
 				<Compiler>
-					<Add option="-march=pentium-m" />
+					<Add option="-march=core2" />
+					<Add option="-std=c++0x" />
 					<Add option="-g" />
+					<Add option="-fPIC" />
 					<Add option="-DAURORA_SOURCE_BUILD=1" />
 					<Add option="-DDEBUG=1" />
 					<Add option="-DNDEBUG=1" />
@@ -36,8 +38,10 @@
 				<Option createDefFile="1" />
 				<Option createStaticLib="1" />
 				<Compiler>
+					<Add option="-march=core2" />
 					<Add option="-march=pentium4" />
 					<Add option="-O2" />
+					<Add option="-std=c++0x" />
 					<Add option="-msse" />
 					<Add option="-DAURORA_SOURCE_BUILD=1" />
 					<Add directory="include" />
